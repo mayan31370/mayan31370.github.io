@@ -1,0 +1,276 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Google Java 代码风格指南 | 天山飞猫 | 一个热爱生活的程序猿</title>
+
+  
+  <meta name="author" content="天山飞猫">
+  
+
+  
+  <meta name="description" content="天山飞猫,mayan31370,java,技术总监">
+  
+
+  
+  
+  <meta name="keywords" content="代码风格">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="Google Java 代码风格指南"/>
+
+  <meta property="og:site_name" content="天山飞猫"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="天山飞猫" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">天山飞猫</a>
+    </h1>
+    <p class="site-description">一个热爱生活的程序猿</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/categories">分类</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>Google Java 代码风格指南</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/03/23/Google-Java-代码风格指南/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-03-23T09:40:46.000Z">
+          2017-03-23
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><ul>
+<li><a href="#1-简介">1 简介</a></li>
+<li><ul>
+<li><a href="#1-1-术语注意事项">1.1 术语注意事项</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#1-2-指南注意事项">1.2 指南注意事项</a></li>
+</ul>
+</li>
+<li><a href="#2-源码基础风格">2 源码基础风格</a></li>
+<li><ul>
+<li><a href="#2-1-文件名">2.1 文件名</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#2-2-文件编码:UTF-8">2.2 文件编码:UTF-8</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#2-3-特殊字符">2.3 特殊字符</a></li>
+</ul>
+</li>
+<li><a href="#3-源码文件结构">3 源码文件结构</a></li>
+<li><ul>
+<li><a href="#3-1-如果存在，请添加License或copyright信息">3.1 如果存在，请添加License或copyright信息</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#3-2-package语句">3.2 package语句</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#3-3-import语句">3.3 import语句</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#3-4-class声明">3.4 class声明</a></li>
+</ul>
+</li>
+<li><a href="#4-格式化">4 格式化</a></li>
+<li><ul>
+<li><a href="#4-1-括号">4.1 括号</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#4-2-代码块儿缩进-2空格">4.2 代码块儿缩进:+2空格</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#4-3-每行一个语句">4.3 每行一个语句</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#4-4-列宽-100">4.4 列宽:100</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#4-5-换行">4.5 换行</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#4-6-空白符">4.6 空白符</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#4-7-分组括号">4.7 分组括号</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#4-8-特殊结构">4.8 特殊结构</a></li>
+</ul>
+</li>
+<li><a href="#5-命名">5 命名</a></li>
+<li><ul>
+<li><a href="#5-1-通用规则">5.1 通用规则</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#5-2-不同标识符的规则">5.2 不同标识符的规则</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#5-3-驼峰命名">5.3 驼峰命名</a></li>
+</ul>
+</li>
+<li><a href="#6-编程规范">6 编程规范</a></li>
+<li><ul>
+<li><a href="#6-1-必须使用-Override">6.1 必须使用 @Override</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#6-2-不能忽略已捕获的异常">6.2 不能忽略已捕获的异常</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#6-3-使用类来访问静态成员">6.3 使用类来访问静态成员</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#6-4-禁止使用-Finalizers">6.4 禁止使用 Finalizers</a></li>
+</ul>
+</li>
+<li><a href="#7-Javadoc">7 Javadoc</a></li>
+<li><ul>
+<li><a href="#7-1-格式化">7.1 格式化</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#7-2-摘要">7.2 摘要</a></li>
+</ul>
+</li>
+<li><ul>
+<li><a href="#7-3-在什么地方使用-Javadoc">7.3 在什么地方使用 Javadoc</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1 简介"></a>1 简介</h2><p>This document serves as the complete definition of Google’s coding standards for source code in the Java™ Programming Language. A Java source file is described as being in Google Style if and only if it adheres to the rules herein.</p>
+<p>Like other programming style guides, the issues covered span not only aesthetic issues of formatting, but other types of conventions or coding standards as well. However, this document focuses primarily on the hard-and-fast rules that we follow universally, and avoids giving advice that isn’t clearly enforceable (whether by human or tool).</p>
+<h3 id="1-1-术语注意事项"><a href="#1-1-术语注意事项" class="headerlink" title="1.1 术语注意事项"></a>1.1 术语注意事项</h3><h3 id="1-2-指南注意事项"><a href="#1-2-指南注意事项" class="headerlink" title="1.2 指南注意事项"></a>1.2 指南注意事项</h3><h2 id="2-源码基础风格"><a href="#2-源码基础风格" class="headerlink" title="2 源码基础风格"></a>2 源码基础风格</h2><h3 id="2-1-文件名"><a href="#2-1-文件名" class="headerlink" title="2.1 文件名"></a>2.1 文件名</h3><h3 id="2-2-文件编码-UTF-8"><a href="#2-2-文件编码-UTF-8" class="headerlink" title="2.2 文件编码:UTF-8"></a>2.2 文件编码:UTF-8</h3><h3 id="2-3-特殊字符"><a href="#2-3-特殊字符" class="headerlink" title="2.3 特殊字符"></a>2.3 特殊字符</h3><h2 id="3-源码文件结构"><a href="#3-源码文件结构" class="headerlink" title="3 源码文件结构"></a>3 源码文件结构</h2><h3 id="3-1-如果存在，请添加License或copyright信息"><a href="#3-1-如果存在，请添加License或copyright信息" class="headerlink" title="3.1 如果存在，请添加License或copyright信息"></a>3.1 如果存在，请添加License或copyright信息</h3><h3 id="3-2-package语句"><a href="#3-2-package语句" class="headerlink" title="3.2 package语句"></a>3.2 package语句</h3><h3 id="3-3-import语句"><a href="#3-3-import语句" class="headerlink" title="3.3 import语句"></a>3.3 import语句</h3><h3 id="3-4-class声明"><a href="#3-4-class声明" class="headerlink" title="3.4 class声明"></a>3.4 class声明</h3><h2 id="4-格式化"><a href="#4-格式化" class="headerlink" title="4 格式化"></a>4 格式化</h2><h3 id="4-1-括号"><a href="#4-1-括号" class="headerlink" title="4.1 括号"></a>4.1 括号</h3><h3 id="4-2-代码块儿缩进-2空格"><a href="#4-2-代码块儿缩进-2空格" class="headerlink" title="4.2 代码块儿缩进:+2空格"></a>4.2 代码块儿缩进:+2空格</h3><h3 id="4-3-每行一个语句"><a href="#4-3-每行一个语句" class="headerlink" title="4.3 每行一个语句"></a>4.3 每行一个语句</h3><h3 id="4-4-列宽-100"><a href="#4-4-列宽-100" class="headerlink" title="4.4 列宽:100"></a>4.4 列宽:100</h3><h3 id="4-5-换行"><a href="#4-5-换行" class="headerlink" title="4.5 换行"></a>4.5 换行</h3><h3 id="4-6-空白符"><a href="#4-6-空白符" class="headerlink" title="4.6 空白符"></a>4.6 空白符</h3><h3 id="4-7-分组括号"><a href="#4-7-分组括号" class="headerlink" title="4.7 分组括号"></a>4.7 分组括号</h3><h3 id="4-8-特殊结构"><a href="#4-8-特殊结构" class="headerlink" title="4.8 特殊结构"></a>4.8 特殊结构</h3><h2 id="5-命名"><a href="#5-命名" class="headerlink" title="5 命名"></a>5 命名</h2><h3 id="5-1-通用规则"><a href="#5-1-通用规则" class="headerlink" title="5.1 通用规则"></a>5.1 通用规则</h3><h3 id="5-2-不同标识符的规则"><a href="#5-2-不同标识符的规则" class="headerlink" title="5.2 不同标识符的规则"></a>5.2 不同标识符的规则</h3><h3 id="5-3-驼峰命名"><a href="#5-3-驼峰命名" class="headerlink" title="5.3 驼峰命名"></a>5.3 驼峰命名</h3><h2 id="6-编程规范"><a href="#6-编程规范" class="headerlink" title="6 编程规范"></a>6 编程规范</h2><h3 id="6-1-必须使用-Override"><a href="#6-1-必须使用-Override" class="headerlink" title="6.1 必须使用 @Override"></a>6.1 必须使用 @Override</h3><h3 id="6-2-不能忽略已捕获的异常"><a href="#6-2-不能忽略已捕获的异常" class="headerlink" title="6.2 不能忽略已捕获的异常"></a>6.2 不能忽略已捕获的异常</h3><h3 id="6-3-使用类来访问静态成员"><a href="#6-3-使用类来访问静态成员" class="headerlink" title="6.3 使用类来访问静态成员"></a>6.3 使用类来访问静态成员</h3><h3 id="6-4-禁止使用-Finalizers"><a href="#6-4-禁止使用-Finalizers" class="headerlink" title="6.4 禁止使用 Finalizers"></a>6.4 禁止使用 Finalizers</h3><h2 id="7-Javadoc"><a href="#7-Javadoc" class="headerlink" title="7 Javadoc"></a>7 Javadoc</h2><h3 id="7-1-格式化"><a href="#7-1-格式化" class="headerlink" title="7.1 格式化"></a>7.1 格式化</h3><h3 id="7-2-摘要"><a href="#7-2-摘要" class="headerlink" title="7.2 摘要"></a>7.2 摘要</h3><h3 id="7-3-在什么地方使用-Javadoc"><a href="#7-3-在什么地方使用-Javadoc" class="headerlink" title="7.3 在什么地方使用 Javadoc"></a>7.3 在什么地方使用 Javadoc</h3>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/代码风格/">代码风格</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+	<div id="comment">
+		
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2017/03/23/Google-Java-代码风格指南/" data-title="Google Java 代码风格指南" data-url="http://blog.ma-yan.win/2017/03/23/Google-Java-代码风格指南/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"mayan31370"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0]
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+
+	</div>
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2017 天山飞猫
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>
