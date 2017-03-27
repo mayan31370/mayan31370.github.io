@@ -206,16 +206,16 @@
 </ul>
 <h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1 简介"></a>1 简介</h2><p>This document serves as the <strong>complete</strong> definition of Google’s coding standards for source code in the Java™ Programming Language. A Java source file is described as being in Google Style if and only if it adheres to the rules herein.</p>
 <p>Like other programming style guides, the issues covered span not only aesthetic issues of formatting, but other types of conventions or coding standards as well. However, this document focuses primarily on the <strong>hard-and-fast</strong> rules that we follow universally, and avoids giving advice that isn’t clearly enforceable (whether by human or tool).</p>
-<h3 id="1-1-术语注意事项"><a href="#1-1-术语注意事项" class="headerlink" title="1.1 术语注意事项"></a>1.1 术语注意事项</h3><p>In this document, unless otherwise clarified:</p>
+<h3 id="1-1-术语"><a href="#1-1-术语" class="headerlink" title="1.1 术语"></a>1.1 术语</h3><p>本文档中除非特别说明，否则遵循以下规则：</p>
 <ol>
-<li>The term <em>class</em> is used inclusively to mean an “ordinary” class, enum class, interface or annotation type (<code>@interface</code>).</li>
-<li>The term <em>member</em> (of a class) is used inclusively to mean a nested class, field, method, or constructor; that is, all top-level contents of a class except initializers and comments.</li>
-<li>The term <em>comment</em> always refers to implementation comments. We do not use the phrase “documentation comments”, instead using the common term “Javadoc.”</li>
+<li><em>class</em> 表示“普通”类、枚举类、接口或注解类(<code>@interface</code>)</li>
+<li>(类中的) <em>member</em> 一般表示内部类、成员、方法或构造器，也就是说包含顶级类中除了初始化块和注释全部内容。</li>
+<li><em>comment</em> 特指直接注释。我们不使用“文档注释”这个词，而是直接使用”Javadoc”。</li>
 </ol>
-<p>Other “terminology notes” will appear occasionally throughout the document.</p>
-<h3 id="1-2-指南注意事项"><a href="#1-2-指南注意事项" class="headerlink" title="1.2 指南注意事项"></a>1.2 指南注意事项</h3><p>Example code in this document is <strong>non-normative</strong>. That is, while the examples are in Google Style, they may not illustrate the only stylish way to represent the code. Optional formatting choices made in examples should not be enforced as rules.</p>
-<h2 id="2-源码基础风格"><a href="#2-源码基础风格" class="headerlink" title="2 源码基础风格"></a>2 源码基础风格</h2><h3 id="2-1-文件名"><a href="#2-1-文件名" class="headerlink" title="2.1 文件名"></a>2.1 文件名</h3><p>The source file name consists of the case-sensitive name of the top-level class it contains (of which there is <a href="#3-4-1-完整的顶级类声明">exactly one</a>), plus the <code>.java</code> extension.</p>
-<h3 id="2-2-文件编码-UTF-8"><a href="#2-2-文件编码-UTF-8" class="headerlink" title="2.2 文件编码:UTF-8"></a>2.2 文件编码:UTF-8</h3><p>Source files are encoded in <strong>UTF-8</strong>.</p>
+<p>其他局部注意事项将在本文中不时出现。</p>
+<h3 id="1-2-指南"><a href="#1-2-指南" class="headerlink" title="1.2 指南"></a>1.2 指南</h3><p>Example code in this document is <strong>non-normative</strong>. That is, while the examples are in Google Style, they may not illustrate the only stylish way to represent the code. Optional formatting choices made in examples should not be enforced as rules.</p>
+<h2 id="2-源码基础风格"><a href="#2-源码基础风格" class="headerlink" title="2 源码基础风格"></a>2 源码基础风格</h2><h3 id="2-1-文件名"><a href="#2-1-文件名" class="headerlink" title="2.1 文件名"></a>2.1 文件名</h3><p>所有源码文件的命名与顶级类保持一致（包括大小写），再加 <code>.java</code> 扩展名。</p>
+<h3 id="2-2-文件编码-UTF-8"><a href="#2-2-文件编码-UTF-8" class="headerlink" title="2.2 文件编码:UTF-8"></a>2.2 文件编码:UTF-8</h3><p>所有源文件使用 <strong>UTF-8</strong> 编码。</p>
 <h3 id="2-3-特殊字符"><a href="#2-3-特殊字符" class="headerlink" title="2.3 特殊字符"></a>2.3 特殊字符</h3><h4 id="2-3-1-空白字符"><a href="#2-3-1-空白字符" class="headerlink" title="2.3.1 空白字符"></a>2.3.1 空白字符</h4><p>Aside from the line terminator sequence, the <strong>ASCII horizontal space character (0x20)</strong> is the only whitespace character that appears anywhere in a source file. This implies that:</p>
 <ol>
 <li>All other whitespace characters in string and character literals are escaped.</li>
@@ -224,12 +224,12 @@
 <h4 id="2-3-2-特殊转义字符"><a href="#2-3-2-特殊转义字符" class="headerlink" title="2.3.2 特殊转义字符"></a>2.3.2 特殊转义字符</h4><p>For any character that has a special escape sequence (\b, \t, \n, \f, \r, \”, \’ and \), that sequence is used rather than the corresponding octal (e.g. \012) or Unicode (e.g. \u000a) escape.</p>
 <h4 id="2-3-3-非ASCII字符"><a href="#2-3-3-非ASCII字符" class="headerlink" title="2.3.3 非ASCII字符"></a>2.3.3 非ASCII字符</h4><p>For the remaining non-ASCII characters, either the actual Unicode character (e.g. ∞) or the equivalent Unicode escape (e.g. \u221e) is used. The choice depends only on which makes the code <strong>easier to read and understand</strong>, although Unicode escapes outside string literals and comments are strongly discouraged.</p>
 <p><strong>Tip:</strong> In the Unicode escape case, and occasionally even when actual Unicode characters are used, an explanatory comment can be very helpful.</p>
-<p>Examples:</p>
+<p><strong>示例:</strong></p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">Example</th>
-<th style="text-align:left">Discussion</th>
+<th style="text-align:left">示例</th>
+<th style="text-align:left">结论</th>
 </tr>
 </thead>
 <tbody>
@@ -256,32 +256,32 @@
 </tbody>
 </table>
 <p><strong>Tip:</strong> Never make your code less readable simply out of fear that some programs might not handle non-ASCII characters properly. If that should happen, those programs are <strong>broken</strong> and they must be <strong>fixed</strong>.</p>
-<h2 id="3-源码文件结构"><a href="#3-源码文件结构" class="headerlink" title="3 源码文件结构"></a>3 源码文件结构</h2><p>A source file consists of, <strong>in order</strong>:</p>
+<h2 id="3-源码文件结构"><a href="#3-源码文件结构" class="headerlink" title="3 源码文件结构"></a>3 源码文件结构</h2><p>源码文件按以下 <strong>顺序</strong> 排序：</p>
 <ol>
-<li>License or copyright information, if present</li>
-<li>Package statement</li>
-<li>Import statements</li>
-<li>Exactly one top-level class</li>
+<li>许可信息和版权信息（如果有的话）</li>
+<li><code>package</code> 语句</li>
+<li><code>import</code> 语句</li>
+<li>顶级类</li>
 </ol>
-<p><strong>Exactly one blank line</strong> separates each section that is present.</p>
-<h3 id="3-1-如果存在，请添加License或copyright信息"><a href="#3-1-如果存在，请添加License或copyright信息" class="headerlink" title="3.1 如果存在，请添加License或copyright信息"></a>3.1 如果存在，请添加License或copyright信息</h3><p>If license or copyright information belongs in a file, it belongs here.</p>
-<h3 id="3-2-package语句"><a href="#3-2-package语句" class="headerlink" title="3.2 package语句"></a>3.2 package语句</h3><p>The package statement is <strong>not line-wrapped</strong>. The column limit (<a href="#4-4-列宽-100">4.4 列宽:100</a>) does not apply to package statements.</p>
-<h3 id="3-3-import语句"><a href="#3-3-import语句" class="headerlink" title="3.3 import语句"></a>3.3 import语句</h3><h4 id="3-3-1-不要使用通配符import"><a href="#3-3-1-不要使用通配符import" class="headerlink" title="3.3.1 不要使用通配符import"></a>3.3.1 不要使用通配符import</h4><p><strong>Wildcard imports</strong>, static or otherwise, <strong>are not used</strong>.</p>
-<h4 id="3-3-2-不要换行"><a href="#3-3-2-不要换行" class="headerlink" title="3.3.2 不要换行"></a>3.3.2 不要换行</h4><p>Import statements are <strong>not line-wrapped</strong>. The column limit (<a href="#4-4-列宽-100">4.4 列宽:100</a>) does not apply to import statements.</p>
-<h4 id="3-3-3-排序和空行"><a href="#3-3-3-排序和空行" class="headerlink" title="3.3.3 排序和空行"></a>3.3.3 排序和空行</h4><p>Imports are ordered as follows:</p>
+<p>各个部分使用 <strong>单行空行</strong> 来分割。</p>
+<h3 id="3-1-如果存在，请添加License或copyright信息"><a href="#3-1-如果存在，请添加License或copyright信息" class="headerlink" title="3.1 如果存在，请添加License或copyright信息"></a>3.1 如果存在，请添加License或copyright信息</h3><p>如果这个文件拥有许可和版权信息，请在文件中添加。</p>
+<h3 id="3-2-package语句"><a href="#3-2-package语句" class="headerlink" title="3.2 package语句"></a>3.2 package语句</h3><p><code>package</code> 语句 <strong>不要换行</strong> 。<br>列宽的限制(<a href="#4-4-列宽-100">4.4 列宽:100</a>)不影响 <code>package</code> 语句。</p>
+<h3 id="3-3-import语句"><a href="#3-3-import语句" class="headerlink" title="3.3 import语句"></a>3.3 import语句</h3><h4 id="3-3-1-不要使用通配符import"><a href="#3-3-1-不要使用通配符import" class="headerlink" title="3.3.1 不要使用通配符import"></a>3.3.1 不要使用通配符import</h4><p>不管是静态导入还是声明，<strong>绝不使用通配符导入</strong>。</p>
+<h4 id="3-3-2-不要换行"><a href="#3-3-2-不要换行" class="headerlink" title="3.3.2 不要换行"></a>3.3.2 不要换行</h4><p><code>import</code> 语句 <strong>不要换行</strong> 。<br>列宽的限制(<a href="#4-4-列宽-100">4.4 列宽:100</a>)不影响 <code>import</code> 语句。</p>
+<h4 id="3-3-3-排序和空行"><a href="#3-3-3-排序和空行" class="headerlink" title="3.3.3 排序和空行"></a>3.3.3 排序和空行</h4><p>导入顺序如下：</p>
 <ol>
-<li>All static imports in a single block.</li>
-<li>All non-static imports in a single block.</li>
+<li>所有静态导入在一个块儿中。</li>
+<li>所有非静态导入在一个块儿中。</li>
 </ol>
-<p>If there are both static and non-static imports, a single blank line separates the two blocks. There are no other blank lines between import statements.</p>
-<p>Within each block the imported names appear in ASCII sort order. (<strong>Note:</strong> this is not the same as the import statements being in ASCII sort order, since ‘.’ sorts before ‘;’.)</p>
-<h4 id="3-3-4-不要静态imoort"><a href="#3-3-4-不要静态imoort" class="headerlink" title="3.3.4 不要静态imoort"></a>3.3.4 不要静态imoort</h4><p>Static import is not used for static nested classes. They are imported with normal imports.</p>
-<h3 id="3-4-class声明"><a href="#3-4-class声明" class="headerlink" title="3.4 class声明"></a>3.4 class声明</h3><h4 id="3-4-1-完整的顶级类声明"><a href="#3-4-1-完整的顶级类声明" class="headerlink" title="3.4.1 完整的顶级类声明"></a>3.4.1 完整的顶级类声明</h4><p>Each top-level class resides in a source file of its own.</p>
+<p>如果既存在静态导入，又有非静态导入，则在两个块儿间用一个空行进行分割。</p>
+<p>Within each block the imported names appear in ASCII sort order. (<strong>Note:</strong> this is not the same as the import statements being in ASCII sort order, since ‘.’ sorts before ‘;’.)<br>在每个块儿中，按类名ASCII码序排序。（<strong>注意</strong> 这并不意味是按语句的ASCII码序排序，因为<code>.</code>的ASCII序在<code>;</code>的ASCII序前。）</p>
+<h4 id="3-3-4-不要静态导入"><a href="#3-3-4-不要静态导入" class="headerlink" title="3.3.4 不要静态导入"></a>3.3.4 不要静态导入</h4><p>不要使用静态导入来导入内部静态类。使用普通导入即可。</p>
+<h3 id="3-4-class声明"><a href="#3-4-class声明" class="headerlink" title="3.4 class声明"></a>3.4 class声明</h3><h4 id="3-4-1-完整的顶级类声明"><a href="#3-4-1-完整的顶级类声明" class="headerlink" title="3.4.1 完整的顶级类声明"></a>3.4.1 完整的顶级类声明</h4><p>每个顶级类都存唯一对应的一个源码文件。</p>
 <h4 id="3-4-2-类的内容的排序"><a href="#3-4-2-类的内容的排序" class="headerlink" title="3.4.2 类的内容的排序"></a>3.4.2 类的内容的排序</h4><p>The order you choose for the members and initializers of your class can have a great effect on learnability. However, there’s no single correct recipe for how to do it; different classes may order their contents in different ways.</p>
 <p>What is important is that each class uses <strong>some logical order</strong>, which its maintainer could explain if asked. For example, new methods are not just habitually added to the end of the class, as that would yield “chronological by date added” ordering, which is not a logical ordering.</p>
 <h5 id="3-4-2-1-重载方法不要分离"><a href="#3-4-2-1-重载方法不要分离" class="headerlink" title="3.4.2.1 重载方法不要分离"></a>3.4.2.1 重载方法不要分离</h5><p>When a class has multiple constructors, or multiple methods with the same name, these appear sequentially, with no other code in between (not even private members).</p>
 <h2 id="4-格式化"><a href="#4-格式化" class="headerlink" title="4 格式化"></a>4 格式化</h2><p><strong>Terminology Note:</strong> <em>block-like</em> construct refers to the body of a class, method or constructor. Note that, by <a href="#4-8-3-1-数组可以像块一样初始化">4.8.3.1 数组可以像块一样初始化</a>, any array initializer may optionally be treated as if it were a block-like construct.</p>
-<h3 id="4-1-括号"><a href="#4-1-括号" class="headerlink" title="4.1 括号"></a>4.1 括号</h3><h4 id="4-1-1-一律使用大括号"><a href="#4-1-1-一律使用大括号" class="headerlink" title="4.1.1 一律使用大括号"></a>4.1.1 一律使用大括号</h4><p>Braces are used with <code>if</code>, <code>else</code>, <code>for</code>, <code>do</code> and <code>while</code> statements, even when the body is empty or contains only a single statement.</p>
+<h3 id="4-1-括号"><a href="#4-1-括号" class="headerlink" title="4.1 括号"></a>4.1 括号</h3><h4 id="4-1-1-一律使用大括号"><a href="#4-1-1-一律使用大括号" class="headerlink" title="4.1.1 一律使用大括号"></a>4.1.1 一律使用大括号</h4><p><code>if</code>、<code>else</code>、<code>for</code>、<code>do</code>和<code>while</code>语句一律使用大括号，哪怕语句块儿只有一行或者为空。</p>
 <h4 id="4-1-2-非空代码块使用K-amp-R风格"><a href="#4-1-2-非空代码块使用K-amp-R风格" class="headerlink" title="4.1.2 非空代码块使用K&amp;R风格"></a>4.1.2 非空代码块使用K&amp;R风格</h4><p>Braces follow the Kernighan and Ritchie style (“Egyptian brackets”) for nonempty blocks and block-like constructs:</p>
 <ul>
 <li>No line break before the opening brace.</li>
@@ -289,10 +289,10 @@
 <li>Line break before the closing brace.</li>
 <li>Line break after the closing brace, <em>only if</em> that brace terminates a statement or terminates the body of a method, constructor, or named class. For example, there is <em>no</em> line break after the brace if it is followed by <code>else</code> or a comma.</li>
 </ul>
-<p>Examples:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> () -&gt; &#123;</div><div class="line">  <span class="keyword">while</span> (condition()) &#123;</div><div class="line">    method();</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">return</span> <span class="keyword">new</span> MyClass() &#123;</div><div class="line">  <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (condition()) &#123;</div><div class="line">      <span class="keyword">try</span> &#123;</div><div class="line">        something();</div><div class="line">      &#125; <span class="keyword">catch</span> (ProblemException e) &#123;</div><div class="line">        recover();</div><div class="line">      &#125;</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (otherCondition()) &#123;</div><div class="line">      somethingElse();</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      lastThing();</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p><strong>示例:</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> () -&gt; &#123;</div><div class="line">  <span class="keyword">while</span> (condition()) &#123;</div><div class="line">    method();</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">return</span> <span class="keyword">new</span> MyClass() &#123;</div><div class="line">  <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (condition()) &#123;</div><div class="line">      <span class="keyword">try</span> &#123;</div><div class="line">        something();</div><div class="line">      &#125; <span class="keyword">catch</span> (ProblemException e) &#123;</div><div class="line">        recover();</div><div class="line">      &#125;</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (otherCondition()) &#123;</div><div class="line">      somethingElse();</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      lastThing();</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
 <p>A few exceptions for enum classes are given in <a href="#4-8-1-枚举类">4.8.1 枚举类</a>].</p>
 <h4 id="4-1-3-空代码块可以很简洁"><a href="#4-1-3-空代码块可以很简洁" class="headerlink" title="4.1.3 空代码块可以很简洁"></a>4.1.3 空代码块可以很简洁</h4><p>An empty block or block-like construct may be in K &amp; R style (as described in <a href="#4-1-2-非空代码块使用K&amp;R风格">4.1.2 非空代码块使用K&amp;R风格</a>). Alternatively, it may be closed immediately after it is opened, with no characters or line break in between ({}), <strong>unless</strong> it is part of a multi-block statement (one that directly contains multiple blocks: <code>if</code>/<code>else</code> or <code>try</code>/<code>catch</code>/<code>finally</code>).</p>
-<p>Examples:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// This is acceptable</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">doNothing</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="comment">// This is equally acceptable</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">doNothingElse</span><span class="params">()</span> </span>&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>示例:</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// This is acceptable</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">doNothing</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="comment">// This is equally acceptable</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">doNothingElse</span><span class="params">()</span> </span>&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// This is not acceptable: No concise empty blocks in a multi-block statement</span></div><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">  doSomething();</div><div class="line">&#125; <span class="keyword">catch</span> (Exception e) &#123;&#125;</div></pre></td></tr></table></figure>
 <h3 id="4-2-代码块儿缩进-2空格"><a href="#4-2-代码块儿缩进-2空格" class="headerlink" title="4.2 代码块儿缩进:+2空格"></a>4.2 代码块儿缩进:+2空格</h3><p>Each time a new block or block-like construct is opened, the indent increases by two spaces. When the block ends, the indent returns to the previous indent level. The indent level applies to both code and comments throughout the block. (See the example in <a href="#4-1-2-非空代码块使用K&amp;R风格">4.1.2 非空代码块使用K&amp;R风格</a>.)</p>
 <h3 id="4-3-每行一个语句"><a href="#4-3-每行一个语句" class="headerlink" title="4.3 每行一个语句"></a>4.3 每行一个语句</h3><p>Each statement is followed by a line break.</p>
@@ -420,9 +420,8 @@
 <h3 id="6-3-使用类来访问静态成员"><a href="#6-3-使用类来访问静态成员" class="headerlink" title="6.3 使用类来访问静态成员"></a>6.3 使用类来访问静态成员</h3><p>When a reference to a static class member must be qualified, it is qualified with that class’s name, not with a reference or expression of that class’s type.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Foo aFoo = ...;</div><div class="line">Foo.aStaticMethod(); <span class="comment">// good</span></div><div class="line">aFoo.aStaticMethod(); <span class="comment">// bad</span></div><div class="line">somethingThatYieldsAFoo().aStaticMethod(); <span class="comment">// very bad</span></div></pre></td></tr></table></figure></p>
 <h3 id="6-4-禁止使用-Finalizers"><a href="#6-4-禁止使用-Finalizers" class="headerlink" title="6.4 禁止使用 Finalizers"></a>6.4 禁止使用 Finalizers</h3><p>It is extremely rare to override Object.finalize.</p>
 <p>Tip: Don’t do it. If you absolutely must, first read and understand Effective Java Item 7, “Avoid Finalizers,” very carefully, and then don’t do it.</p>
-<h2 id="7-Javadoc"><a href="#7-Javadoc" class="headerlink" title="7 Javadoc"></a>7 Javadoc</h2><h3 id="7-1-格式化"><a href="#7-1-格式化" class="headerlink" title="7.1 格式化"></a>7.1 格式化</h3><h4 id="7-1-1-通用格式"><a href="#7-1-1-通用格式" class="headerlink" title="7.1.1 通用格式"></a>7.1.1 通用格式</h4><p>The basic formatting of Javadoc blocks is as seen in this example:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Multiple lines of Javadoc text are written here,</div><div class="line"> * wrapped normally...</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">method</span><span class="params">(String p1)</span> </span>&#123; ... &#125;</div></pre></td></tr></table></figure></p>
-<p>… or in this single-line example:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** An especially short bit of Javadoc. */</span></div></pre></td></tr></table></figure>
+<h2 id="7-Javadoc"><a href="#7-Javadoc" class="headerlink" title="7 Javadoc"></a>7 Javadoc</h2><h3 id="7-1-格式化"><a href="#7-1-格式化" class="headerlink" title="7.1 格式化"></a>7.1 格式化</h3><h4 id="7-1-1-通用格式"><a href="#7-1-1-通用格式" class="headerlink" title="7.1.1 通用格式"></a>7.1.1 通用格式</h4><p>Javadoc的基本格式如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Multiple lines of Javadoc text are written here,</div><div class="line"> * wrapped normally...</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">method</span><span class="params">(String p1)</span> </span>&#123; ... &#125;</div></pre></td></tr></table></figure></p>
+<p>或者像下面这种单行的格式:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** An especially short bit of Javadoc. */</span></div></pre></td></tr></table></figure></p>
 <p>The basic form is always acceptable. The single-line form may be substituted when the entirety of the Javadoc block (including comment markers) can fit on a single line. Note that this only applies when there are no block tags such as @return.</p>
 <h4 id="7-1-2-段落"><a href="#7-1-2-段落" class="headerlink" title="7.1.2 段落"></a>7.1.2 段落</h4><p>One blank line—that is, a line containing only the aligned leading asterisk (<code>*</code>)—appears between paragraphs, and before the group of block tags if present. Each paragraph but the first has </p><p> immediately before the first word, with no space after.</p>
 <h4 id="7-1-3-标签块"><a href="#7-1-3-标签块" class="headerlink" title="7.1.3 标签块"></a>7.1.3 标签块</h4><p>Any of the standard “block tags” that are used appear in the order @param, @return, @throws, @deprecated, and these four types never appear with an empty description. When a block tag doesn’t fit on a single line, continuation lines are indented four (or more) spaces from the position of the @.</p>
@@ -522,7 +521,7 @@
 
     <span class="post-tags">
       <i class="icon-tags"></i>
-        <a href="/tags/tools/">tools</a><a href="/tags/idea/">idea</a>
+        <a href="/tags/idea/">idea</a><a href="/tags/tools/">tools</a>
     </span>
     
 
@@ -674,7 +673,7 @@
 
     <span class="post-tags">
       <i class="icon-tags"></i>
-        <a href="/tags/ubuntu/">ubuntu</a><a href="/tags/tools/">tools</a>
+        <a href="/tags/tools/">tools</a><a href="/tags/ubuntu/">ubuntu</a>
     </span>
     
 
