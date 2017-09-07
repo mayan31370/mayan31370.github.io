@@ -1,0 +1,189 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>记一个由docker引发的openvpn不能连接服务器的问题 | 天山飞猫 | 一个热爱生活的程序猿</title>
+
+  
+  <meta name="author" content="天山飞猫">
+  
+
+  
+  <meta name="description" content="天山飞猫,mayan31370,java,技术总监">
+  
+
+  
+  
+  <meta name="keywords" content="utunbu,docker,vpn">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="记一个由docker引发的openvpn不能连接服务器的问题"/>
+
+  <meta property="og:site_name" content="天山飞猫"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="天山飞猫" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">天山飞猫</a>
+    </h1>
+    <p class="site-description">一个热爱生活的程序猿</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/repos">仓库</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>记一个由docker引发的openvpn不能连接服务器的问题</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/09/07/记一个由docker引发的openvpn不能连接服务器的问题/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-09-07T08:59:33.000Z">
+          2017-09-07
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="由来"><a href="#由来" class="headerlink" title="由来"></a>由来</h2><p>这几天同事在我们的服务器上搭建了openvpn来增强系统的安全性，并给我创建了一个证书。</p>
+<p>我在可以连接上openvpn，但死活连不了我们服务器，我们一开始都怀疑是证书本身的问题。</p>
+<h2 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h2><p>我们马上找了太windows机器测试，完全正常，没有任何问题。</p>
+<p>完了，看来是我的非主流ubuntu系统的问题了。</p>
+<p>正好，手边有另一套系统的openvpn，登录，一切正常。</p>
+<p>难道说，是制作openvpn证书时，要增加什么特殊命令吗？</p>
+<p>打开两个证书，对比了一下，并没有什么特殊之处。</p>
+<p>完了，遇到迷之问题了。</p>
+<p>准备洗洗睡了。。。。</p>
+<h2 id="灵感"><a href="#灵感" class="headerlink" title="灵感"></a>灵感</h2><p>在查找问题的时候我忽略了一个问题，就是：</p>
+<ul>
+<li>我们服务器地址为 172.17.110.110</li>
+<li>我可以ping通172.17.0.1</li>
+<li>但我ping172.17.110.110时报host unreachable</li>
+</ul>
+<p>这是一个非常重要的信息，但我就是没有get到任何东西，直到我敲出一下命令<code>ifconfig</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">docker0   Link encap:以太网  硬件地址 02:42:02:7b:ee:bd  </div><div class="line">          inet 地址:172.17.0.1  广播:0.0.0.0  掩码:255.255.255.0</div><div class="line">          UP BROADCAST MULTICAST  MTU:1500  跃点数:1</div><div class="line">          接收数据包:0 错误:0 丢弃:0 过载:0 帧数:0</div><div class="line">          发送数据包:0 错误:0 丢弃:0 过载:0 载波:0</div><div class="line">          碰撞:0 发送队列长度:0 </div><div class="line">          接收字节:0 (0.0 B)  发送字节:0 (0.0 B)</div><div class="line"></div><div class="line">lo        Link encap:本地环回  </div><div class="line">          inet 地址:127.0.0.1  掩码:255.0.0.0</div><div class="line">          inet6 地址: ::1/128 Scope:Host</div><div class="line">          UP LOOPBACK RUNNING  MTU:65536  跃点数:1</div><div class="line">          接收数据包:301877 错误:0 丢弃:0 过载:0 帧数:0</div><div class="line">          发送数据包:301877 错误:0 丢弃:0 过载:0 载波:0</div><div class="line">          碰撞:0 发送队列长度:1000 </div><div class="line">          接收字节:30098878 (30.0 MB)  发送字节:30098878 (30.0 MB)</div><div class="line"></div><div class="line">wlp3s0    Link encap:以太网  硬件地址 84:3a:4b:72:c3:a8  </div><div class="line">          inet 地址:192.168.1.101  广播:192.168.1.255  掩码:255.255.255.0</div><div class="line">          inet6 地址: fe80::65ab:bf3e:553f:dfdc/64 Scope:Link</div><div class="line">          UP BROADCAST RUNNING MULTICAST  MTU:1500  跃点数:1</div><div class="line">          接收数据包:627535 错误:0 丢弃:0 过载:0 帧数:0</div><div class="line">          发送数据包:468397 错误:0 丢弃:0 过载:0 载波:0</div><div class="line">          碰撞:0 发送队列长度:1000 </div><div class="line">          接收字节:402035116 (402.0 MB)  发送字节:52318029 (52.3 MB)</div></pre></td></tr></table></figure></p>
+<p>Oh my ladygaga!!</p>
+<p>我终于找到原因，是我的vpn路由设置不起作用导致的连不到，而最终原因却是docker建立的虚拟网桥和我们服务器的网段居然一样！！！</p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>找到dockerd的启动命令<code>/lib/systemd/system/docker.service</code></p>
+<p>修改<code>ExecStart=/usr/bin/dockerd -H fd:// $DOCKER_OPTS</code>为<code>ExecStart=/usr/bin/dockerd -H fd:// --bip 172.16.0.1/24 $DOCKER_OPTS</code></p>
+<p>重启docker后，在拨vpn，问题解决。</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/utunbu/">utunbu</a><a href="/tags/docker/">docker</a><a href="/tags/vpn/">vpn</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+	<div id="comment">
+		
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2017/09/07/记一个由docker引发的openvpn不能连接服务器的问题/" data-title="记一个由docker引发的openvpn不能连接服务器的问题" data-url="http://blog.ma-yan.win/2017/09/07/记一个由docker引发的openvpn不能连接服务器的问题/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"mayan31370"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0]
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+
+	</div>
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2017 天山飞猫
+    
+  </p>
+</footer>
+    
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-96760263-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+  </div>
+</div>
+</body>
+</html>

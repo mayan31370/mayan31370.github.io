@@ -65,6 +65,162 @@
 
   
     
+    <h3 class="article-title"><a href="/2017/09/07/记一个由docker引发的openvpn不能连接服务器的问题/"><span>记一个由docker引发的openvpn不能连接服务器的问题</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/09/07/记一个由docker引发的openvpn不能连接服务器的问题/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-09-07T08:59:33.000Z">
+          2017-09-07
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="由来"><a href="#由来" class="headerlink" title="由来"></a>由来</h2><p>这几天同事在我们的服务器上搭建了openvpn来增强系统的安全性，并给我创建了一个证书。</p>
+<p>我在可以连接上openvpn，但死活连不了我们服务器，我们一开始都怀疑是证书本身的问题。</p>
+<h2 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h2><p>我们马上找了太windows机器测试，完全正常，没有任何问题。</p>
+<p>完了，看来是我的非主流ubuntu系统的问题了。</p>
+<p>正好，手边有另一套系统的openvpn，登录，一切正常。</p>
+<p>难道说，是制作openvpn证书时，要增加什么特殊命令吗？</p>
+<p>打开两个证书，对比了一下，并没有什么特殊之处。</p>
+<p>完了，遇到迷之问题了。</p>
+<p>准备洗洗睡了。。。。</p>
+<h2 id="灵感"><a href="#灵感" class="headerlink" title="灵感"></a>灵感</h2><p>在查找问题的时候我忽略了一个问题，就是：</p>
+<ul>
+<li>我们服务器地址为 172.17.110.110</li>
+<li>我可以ping通172.17.0.1</li>
+<li>但我ping172.17.110.110时报host unreachable</li>
+</ul>
+<p>这是一个非常重要的信息，但我就是没有get到任何东西，直到我敲出一下命令<code>ifconfig</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">docker0   Link encap:以太网  硬件地址 02:42:02:7b:ee:bd  </div><div class="line">          inet 地址:172.17.0.1  广播:0.0.0.0  掩码:255.255.255.0</div><div class="line">          UP BROADCAST MULTICAST  MTU:1500  跃点数:1</div><div class="line">          接收数据包:0 错误:0 丢弃:0 过载:0 帧数:0</div><div class="line">          发送数据包:0 错误:0 丢弃:0 过载:0 载波:0</div><div class="line">          碰撞:0 发送队列长度:0 </div><div class="line">          接收字节:0 (0.0 B)  发送字节:0 (0.0 B)</div><div class="line"></div><div class="line">lo        Link encap:本地环回  </div><div class="line">          inet 地址:127.0.0.1  掩码:255.0.0.0</div><div class="line">          inet6 地址: ::1/128 Scope:Host</div><div class="line">          UP LOOPBACK RUNNING  MTU:65536  跃点数:1</div><div class="line">          接收数据包:301877 错误:0 丢弃:0 过载:0 帧数:0</div><div class="line">          发送数据包:301877 错误:0 丢弃:0 过载:0 载波:0</div><div class="line">          碰撞:0 发送队列长度:1000 </div><div class="line">          接收字节:30098878 (30.0 MB)  发送字节:30098878 (30.0 MB)</div><div class="line"></div><div class="line">wlp3s0    Link encap:以太网  硬件地址 84:3a:4b:72:c3:a8  </div><div class="line">          inet 地址:192.168.1.101  广播:192.168.1.255  掩码:255.255.255.0</div><div class="line">          inet6 地址: fe80::65ab:bf3e:553f:dfdc/64 Scope:Link</div><div class="line">          UP BROADCAST RUNNING MULTICAST  MTU:1500  跃点数:1</div><div class="line">          接收数据包:627535 错误:0 丢弃:0 过载:0 帧数:0</div><div class="line">          发送数据包:468397 错误:0 丢弃:0 过载:0 载波:0</div><div class="line">          碰撞:0 发送队列长度:1000 </div><div class="line">          接收字节:402035116 (402.0 MB)  发送字节:52318029 (52.3 MB)</div></pre></td></tr></table></figure></p>
+<p>Oh my ladygaga!!</p>
+<p>我终于找到原因，是我的vpn路由设置不起作用导致的连不到，而最终原因却是docker建立的虚拟网桥和我们服务器的网段居然一样！！！</p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>找到dockerd的启动命令<code>/lib/systemd/system/docker.service</code></p>
+<p>修改<code>ExecStart=/usr/bin/dockerd -H fd:// $DOCKER_OPTS</code>为<code>ExecStart=/usr/bin/dockerd -H fd:// --bip 172.16.0.1/24 $DOCKER_OPTS</code></p>
+<p>重启docker后，在拨vpn，问题解决。</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/utunbu/">utunbu</a><a href="/tags/docker/">docker</a><a href="/tags/vpn/">vpn</a>
+    </span>
+    
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2017/09/07/记一个由docker引发的openvpn不能连接服务器的问题/#comment">评论</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2017/08/17/ssh连接特别慢的解决方案/"><span>ssh连接特别慢的解决方案</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/08/17/ssh连接特别慢的解决方案/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-08-17T06:31:27.000Z">
+          2017-08-17
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>最近做了不少运维工作，一个之前一直存在但被忽略的问题显的越发的讨厌了。</p>
+<p>就是，当ssh连接服务器的时候，在建立的时候非常慢，但连接上以后，就恢复正常了，今天实在是忍无可忍，终于动手解决了。</p>
+<h2 id="定位问题"><a href="#定位问题" class="headerlink" title="定位问题"></a>定位问题</h2><ol>
+<li>确认网络没有问题</li>
+<li>确认ping到服务器的链路正常</li>
+<li>使用<code>ssh -v host</code>来查看慢的原因</li>
+</ol>
+<p>发现问题出现在此处：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">debug1: Next authentication method: gssapi-with-mic</div><div class="line">debug1: Unspecified GSS failure. Minor code may provide more information</div><div class="line">No credentials cache found</div></pre></td></tr></table></figure></p>
+<p>连接在此处会有一个长时间的等待</p>
+<p>经查询，是在authentication gssapi-with-mic时，消耗了大量的时间</p>
+<h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><p>这个属于客户端的问题，比较好改。</p>
+<p>编辑<code>/etc/ssh/ssh_config</code>,修改：<code>GSSAPIAuthentication yes</code>为<code>GSSAPIAuthentication no</code></p>
+<p>问题解决，并没有花费多长时间。</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/ubuntu-ssh/">ubuntu,ssh</a>
+    </span>
+    
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2017/08/17/ssh连接特别慢的解决方案/#comment">评论</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
     <h3 class="article-title"><a href="/2017/03/23/Google-Java-代码风格指南/"><span>Google Java 代码风格指南(中文版)</span></a></h3>
     
   
@@ -85,7 +241,7 @@
   <div class="article-content">
     <div class="entry">
       
-        <p><strong>翻译中，目前进度40%</strong><br><a href="https://google.github.io/styleguide/javaguide.html" target="_blank" rel="external">原文链接</a></p>
+        <p><strong>翻译中，目前进度75%</strong><br><a href="https://google.github.io/styleguide/javaguide.html" target="_blank" rel="external">原文链接</a></p>
 <p><em>P.S.</em> 翻译水平有限，希望大家能提供好的建议和指正。</p>
 <h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><ul>
 <li><a href="#1-简介">1 简介</a></li>
@@ -305,17 +461,76 @@
 <p>尽管没有一个全面的，确定性的规则规定在各种情况下该如何换行，但通常有几种有效的方式来换行。</p>
 <p>注意：尽管换行的典型原因是为了避免溢出列限制，即使实际符合列限制的代码也可能由作者自行决定。</p>
 <p>提示：大部分情况下，可以通过提取方法或局部变量来解决问题，而不是换行。</p>
-<h4 id="4-5-1-在哪里换行？"><a href="#4-5-1-在哪里换行？" class="headerlink" title="4.5.1 在哪里换行？"></a>4.5.1 在哪里换行？</h4><p><strong>TODO</strong><br>The prime directive of line-wrapping is: prefer to break at a higher syntactic level. Also:</p>
-<p><strong>TODO</strong><br>When a line is broken at a non-assignment operator the break comes before the symbol. (Note that this is not the same practice used in Google style for other languages, such as C++ and JavaScript.)<br>This also applies to the following “operator-like” symbols:<br>the dot separator (.)<br>the two colons of a method reference (::)<br>an ampersand in a type bound (<t extends="" foo="" &="" bar="">)<br>a pipe in a catch block (catch (FooException | BarException e)).<br>When a line is broken at an assignment operator the break typically comes after the symbol, but either way is acceptable.<br>This also applies to the “assignment-operator-like” colon in an enhanced for (“foreach”) statement.<br>A method or constructor name stays attached to the open parenthesis (() that follows it.<br>A comma (,) stays attached to the token that precedes it.<br>A line is never broken adjacent to the arrow in a lambda, except that a break may come immediately after the arrow if the body of the lambda consists of a single unbraced expression. Examples:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">MyLambda&lt;String, Long, Object&gt; lambda =</div><div class="line">    (String label, Long value, Object obj) -&gt; &#123;</div><div class="line">        ...</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">Predicate&lt;String&gt; predicate = str -&gt;</div><div class="line">    longExpressionInvolving(str);</div></pre></td></tr></table></figure></t></p>
-<p><strong>TODO</strong><br>Note: The primary goal for line wrapping is to have clear code, not necessarily code that fits in the smallest number of lines.</p>
+<h4 id="4-5-1-在哪里换行？"><a href="#4-5-1-在哪里换行？" class="headerlink" title="4.5.1 在哪里换行？"></a>4.5.1 在哪里换行？</h4><p><strong>TODO</strong><br>The prime directive of line-wrapping is: prefer to break at a <strong>higher syntactic level</strong>. Also:</p>
+<p><strong>TODO</strong></p>
+<ol>
+<li>When a line is broken at a non-assignment operator the break comes before the symbol. (Note that this is not the same practice used in Google style for other languages, such as C++ and JavaScript.)<ul>
+<li>This also applies to the following “operator-like” symbols:<ul>
+<li>the dot separator (.)</li>
+<li>the two colons of a method reference (::)</li>
+<li>an ampersand in a type bound (<t extends="" foo="" &="" bar="">)</t></li>
+<li>a pipe in a catch block (catch (FooException | BarException e)).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>When a line is broken at an assignment operator the break typically comes after the symbol, but either way is acceptable.<ul>
+<li>This also applies to the “assignment-operator-like” colon in an enhanced for (“foreach”) statement.</li>
+</ul>
+</li>
+<li>A method or constructor name stays attached to the open parenthesis (() that follows it.</li>
+<li>A comma (,) stays attached to the token that precedes it.</li>
+<li>A line is never broken adjacent to the arrow in a lambda, except that a break may come immediately after the arrow if the body of the lambda consists of a single unbraced expression. Examples:<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">MyLambda&lt;String, Long, Object&gt; lambda =</div><div class="line">    (String label, Long value, Object obj) -&gt; &#123;</div><div class="line">        ...</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">Predicate&lt;String&gt; predicate = str -&gt;</div><div class="line">    longExpressionInvolving(str);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>注意</strong> 换行最主要的目的是保持代码的清晰，而不是占用最少的行。</p>
 <h4 id="4-5-2-缩进连续行-4空格"><a href="#4-5-2-缩进连续行-4空格" class="headerlink" title="4.5.2 缩进连续行:+4空格"></a>4.5.2 缩进连续行:+4空格</h4><p>当折行时，新的行要比原始行缩进4个空格。</p>
 <p>当有多个连续行时，保持后续行相同的缩进。</p>
-<h3 id="4-6-空白符"><a href="#4-6-空白符" class="headerlink" title="4.6 空白符"></a>4.6 空白符</h3><h4 id="4-6-1-垂直空白"><a href="#4-6-1-垂直空白" class="headerlink" title="4.6.1 垂直空白"></a>4.6.1 垂直空白</h4><p><strong>TODO</strong><br>A single blank line appears:</p>
-<p><strong>TODO</strong><br>Between consecutive members or initializers of a class: fields, constructors, methods, nested classes, static initializers, and instance initializers.<br>Exception: A blank line between two consecutive fields (having no other code between them) is optional. Such blank lines are used as needed to create logical groupings of fields.<br>Exception: Blank lines between enum constants are covered in Section 4.8.1.<br>Between statements, as needed to organize the code into logical subsections.<br>Optionally before the first member or initializer, or after the last member or initializer of the class (neither encouraged nor discouraged).<br>As required by other sections of this document (such as Section 3, Source file structure, and Section 3.3, Import statements).<br>Multiple consecutive blank lines are permitted, but never required (or encouraged).</p>
+<h3 id="4-6-空白符"><a href="#4-6-空白符" class="headerlink" title="4.6 空白符"></a>4.6 空白符</h3><h4 id="4-6-1-垂直空白"><a href="#4-6-1-垂直空白" class="headerlink" title="4.6.1 垂直空白"></a>4.6.1 垂直空白</h4><p>空行会在以下几种情况下使用：</p>
+<ol>
+<li>类中不同类型的成员和构造器之间: 属性、构造器、方法、内部类、静态初始化块和实例初始化.<ul>
+<li><strong>例外</strong> 属性之间的空行可以省去，一般在属性之间的空行用来分组。</li>
+<li><strong>例外</strong> 枚举常量的空行使用在<a href="#4-8-1-枚举类">4.8.1 枚举类</a>中讨论。</li>
+</ul>
+</li>
+<li>语句之间用以标识逻辑上的分割。</li>
+<li>在第一个成员或初始化块前或最后一个成员或初始化块后也可以增加空行。</li>
+<li>在其他章节提到的要求（比如<a href="#3-源码文件结构">3 源码文件结构</a>和<a href="#3-3-import语句">3.3 import语句</a>）。</li>
+</ol>
+<p>不推荐使用连续多行的空行（但也不禁止）。</p>
 <h4 id="4-6-2-水平空白"><a href="#4-6-2-水平空白" class="headerlink" title="4.6.2 水平空白"></a>4.6.2 水平空白</h4><p><strong>TODO</strong><br>Beyond where required by the language or other style rules, and apart from literals, comments and Javadoc, a single ASCII space also appears in the following places only.</p>
-<p><strong>TODO</strong><br>Separating any reserved word, such as if, for or catch, from an open parenthesis (() that follows it on that line<br>Separating any reserved word, such as else or catch, from a closing curly brace (}) that precedes it on that line<br>Before any open curly brace (<code>{</code>), with two exceptions:<br><code>@SomeAnnotation({a, b})</code> (no space is used)<br><code>String[][] x = foo;</code> (no space is required between <code>{</code>, by item 8 below)<br>On both sides of any binary or ternary operator. This also applies to the following “operator-like” symbols:<br>the ampersand in a conjunctive type bound: <code>&lt;T extends Foo &amp; Bar&gt;</code><br>the pipe for a catch block that handles multiple exceptions: <code>catch (FooException | BarException e)</code><br>the colon (:) in an enhanced for (“foreach”) statement<br>the arrow in a lambda expression: <code>(String str) -&gt; str.length()</code><br>but not<br>the two colons (<code>::</code>) of a method reference, which is written like <code>Object::toString</code><br>the dot separator (.), which is written like object.toString()<br>After <code>,:;</code> or the closing parenthesis ()) of a cast<br>On both sides of the double slash (<code>//</code>) that begins an end-of-line comment. Here, multiple spaces are allowed, but not required.<br>Between the type and variable of a declaration: <code>List&lt;String&gt; list</code><br>Optional just inside both braces of an array initializer<br><code>new int[] {5, 6}</code> and <code>new int[] { 5, 6 }</code> are both valid<br>This rule is never interpreted as requiring or forbidding additional space at the start or end of a line; it addresses only interior space.</p>
-<h4 id="4-6-3-不要求水平对齐"><a href="#4-6-3-不要求水平对齐" class="headerlink" title="4.6.3 不要求水平对齐"></a>4.6.3 不要求水平对齐</h4><p><strong>TODO</strong><br>Terminology Note: Horizontal alignment is the practice of adding a variable number of additional spaces in your code with the goal of making certain tokens appear directly below certain other tokens on previous lines.</p>
-<p><strong>TODO</strong><br>This practice is permitted, but is never required by Google Style. It is not even required to maintain horizontal alignment in places where it was already used.</p>
+<p><strong>TODO</strong></p>
+<ol>
+<li>Separating any reserved word, such as else or catch, from a closing curly brace (}) that precedes it on that line</li>
+<li>Separating any reserved word, such as if, for or catch, from an open parenthesis (() that follows it on that line</li>
+<li>Before any open curly brace (<code>{</code>), with two exceptions:<ul>
+<li><code>@SomeAnnotation({a, b})</code> (no space is used)</li>
+<li><code>String[][] x = foo;</code> (no space is required between <code>{</code>, by item 8 below)</li>
+</ul>
+</li>
+<li><p>On both sides of any binary or ternary operator. This also applies to the following “operator-like” symbols:</p>
+<ul>
+<li>the ampersand in a conjunctive type bound: <code>&lt;T extends Foo &amp; Bar&gt;</code></li>
+<li>the pipe for a catch block that handles multiple exceptions: <code>catch (FooException | BarException e)</code></li>
+<li>the colon (:) in an enhanced for (“foreach”) statement</li>
+<li>the arrow in a lambda expression: <code>(String str) -&gt; str.length()</code></li>
+</ul>
+<p>but not</p>
+<ul>
+<li>the two colons (<code>::</code>) of a method reference, which is written like <code>Object::toString</code></li>
+<li>the dot separator (.), which is written like object.toString()</li>
+</ul>
+</li>
+<li>After <code>,:;</code> or the closing parenthesis ()) of a cast</li>
+<li>On both sides of the double slash (<code>//</code>) that begins an end-of-line comment. Here, multiple spaces are allowed, but not required.</li>
+<li>Between the type and variable of a declaration: <code>List&lt;String&gt; list</code></li>
+<li>Optional just inside both braces of an array initializer<ul>
+<li><code>new int[] {5, 6}</code> and <code>new int[] { 5, 6 }</code> are both valid</li>
+</ul>
+</li>
+</ol>
+<p>This rule is never interpreted as requiring or forbidding additional space at the start or end of a line; it addresses only interior space.</p>
+<h4 id="4-6-3-不要求水平对齐"><a href="#4-6-3-不要求水平对齐" class="headerlink" title="4.6.3 不要求水平对齐"></a>4.6.3 不要求水平对齐</h4><p><strong>TODO</strong><br>This practice is permitted, but is never required by Google Style. It is not even required to maintain horizontal alignment in places where it was already used.</p>
 <p><strong>TODO</strong><br>Here is an example without alignment, then using alignment:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">int</span> x; <span class="comment">// this is fine</span></div><div class="line"><span class="keyword">private</span> Color color; <span class="comment">// this too</span></div><div class="line"></div><div class="line"><span class="keyword">private</span> <span class="keyword">int</span>   x;      <span class="comment">// permitted, but future edits</span></div><div class="line"><span class="keyword">private</span> Color color;  <span class="comment">// may leave it unaligned</span></div></pre></td></tr></table></figure></p>
 <p><strong>TODO</strong><br>Tip: Alignment can aid readability, but it creates problems for future maintenance. Consider a future change that needs to touch just one line. This change may leave the formerly-pleasing formatting mangled, and that is allowed. More often it prompts the coder (perhaps you) to adjust whitespace on nearby lines as well, possibly triggering a cascading series of reformattings. That one-line change now has a “blast radius.” This can at worst result in pointless busywork, but at best it still corrupts version history information, slows down reviewers and exacerbates merge conflicts.</p>
 <h3 id="4-7-分组括号"><a href="#4-7-分组括号" class="headerlink" title="4.7 分组括号"></a>4.7 分组括号</h3><p><strong>TODO</strong><br>Optional grouping parentheses are omitted only when author and reviewer agree that there is no reasonable chance the code will be misinterpreted without them, nor would they have made the code easier to read. It is not reasonable to assume that every reader has the entire Java operator precedence table memorized.</p>
@@ -326,9 +541,8 @@
 <h5 id="4-8-2-2-需要时才声明"><a href="#4-8-2-2-需要时才声明" class="headerlink" title="4.8.2.2 需要时才声明"></a>4.8.2.2 需要时才声明</h5><p>局部变量不要在代码块的开头定义，而是在马上要用到的地方声明。</p>
 <h4 id="4-8-3-数组"><a href="#4-8-3-数组" class="headerlink" title="4.8.3 数组"></a>4.8.3 数组</h4><h5 id="4-8-3-1-数组可以像块一样初始化"><a href="#4-8-3-1-数组可以像块一样初始化" class="headerlink" title="4.8.3.1 数组可以像块一样初始化"></a>4.8.3.1 数组可以像块一样初始化</h5><p>任何数组的初始化都可以像块儿结构一样。比如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> <span class="keyword">int</span>[] &#123;</div><div class="line">  <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span></div><div class="line">&#125;;</div><div class="line"><span class="keyword">new</span> <span class="keyword">int</span>[] &#123;</div><div class="line">  <span class="number">0</span>,</div><div class="line">  <span class="number">1</span>,</div><div class="line">  <span class="number">2</span>,</div><div class="line">  <span class="number">3</span>,</div><div class="line">&#125;;</div><div class="line"><span class="keyword">new</span> <span class="keyword">int</span>[] &#123;</div><div class="line">  <span class="number">0</span>, <span class="number">1</span>,</div><div class="line">  <span class="number">2</span>, <span class="number">3</span></div><div class="line">&#125;;</div><div class="line"><span class="keyword">new</span> <span class="keyword">int</span>[]</div><div class="line">    &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</div></pre></td></tr></table></figure></p>
 <h5 id="4-8-3-2-不使用C风格的数组声明方式"><a href="#4-8-3-2-不使用C风格的数组声明方式" class="headerlink" title="4.8.3.2 不使用C风格的数组声明方式"></a>4.8.3.2 不使用C风格的数组声明方式</h5><p>方括号跟在类型后，而不是参数。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">String[] args; <span class="comment">// 这是正确的</span></div><div class="line">String args[]; <span class="comment">// 这是错误的</span></div></pre></td></tr></table></figure></p>
-<h4 id="4-8-4-switch语句"><a href="#4-8-4-switch语句" class="headerlink" title="4.8.4 switch语句"></a>4.8.4 switch语句</h4><p><strong>TODO</strong><br>Terminology Note: Inside the braces of a switch block are one or more statement groups. Each statement group consists of one or more switch labels (either case FOO: or default:), followed by one or more statements (or, for the last statement group, zero or more statements).</p>
-<h5 id="4-8-4-1-缩进"><a href="#4-8-4-1-缩进" class="headerlink" title="4.8.4.1 缩进"></a>4.8.4.1 缩进</h5><p>任何代码块儿的开始，都需要缩进两个空格。</p>
-<p><strong>TODO</strong><br>After a switch label, there is a line break, and the indentation level is increased +2, exactly as if a block were being opened. The following switch label returns to the previous indentation level, as if a block had been closed.</p>
+<h4 id="4-8-4-switch语句"><a href="#4-8-4-switch语句" class="headerlink" title="4.8.4 switch语句"></a>4.8.4 switch语句</h4><h5 id="4-8-4-1-缩进"><a href="#4-8-4-1-缩进" class="headerlink" title="4.8.4.1 缩进"></a>4.8.4.1 缩进</h5><p>任何代码块儿的开始，都需要缩进两个空格。</p>
+<p>在每个<code>case</code>或<code>default</code>语句后都需换行，其中的语句也像语句块儿一样要缩进两个空格。</p>
 <h5 id="4-8-4-2-进入下一条件注释"><a href="#4-8-4-2-进入下一条件注释" class="headerlink" title="4.8.4.2 进入下一条件注释"></a>4.8.4.2 进入下一条件注释</h5><p>在<code>switch</code>语句块中，每种<code>case</code>都应有明确的中断（<code>break</code>、<code>continue</code>、<code>return</code>或<code>throw</code>）或用注释说明将会进入下一条件。比如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">switch</span> (input) &#123;</div><div class="line">  <span class="keyword">case</span> <span class="number">1</span>:</div><div class="line">  <span class="keyword">case</span> <span class="number">2</span>:</div><div class="line">    prepareOneOrTwo();</div><div class="line">    <span class="comment">// 继续进入下一条件</span></div><div class="line">  <span class="keyword">case</span> <span class="number">3</span>:</div><div class="line">    handleOneTwoOrThree();</div><div class="line">    <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">default</span>:</div><div class="line">    handleLargeNumber(input);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>注意：像<code>case 1:</code>后面就没有注释。注释只需要添加在语句之后。</p>
 <h5 id="4-8-4-3-必须提供default条件"><a href="#4-8-4-3-必须提供default条件" class="headerlink" title="4.8.4.3 必须提供default条件"></a>4.8.4.3 必须提供default条件</h5><p>每个<code>switch</code>语句都应包含<code>default</code>条件，哪怕<code>default</code>中不包含任何代码。</p>
@@ -767,16 +981,16 @@
 </tbody>
 </table>
 <p>也就是说，gitflow的每个操作都是固化的一组git命令</p>
-<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git flow init</div></pre></td></tr></table></figure>
+<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git flow init</div></pre></td></tr></table></figure>
 <p>接下来会提几个问题：</p>
 <ol>
 <li>主分支名 master</li>
 <li>开发分支名 dev</li>
 <li>各种分支和tag前缀名 直接回车 使用默认的即可</li>
 </ol>
-<h3 id="获取使用帮助"><a href="#获取使用帮助" class="headerlink" title="获取使用帮助"></a>获取使用帮助</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git flow</div></pre></td></tr></table></figure>
+<h3 id="获取使用帮助"><a href="#获取使用帮助" class="headerlink" title="获取使用帮助"></a>获取使用帮助</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git flow</div></pre></td></tr></table></figure>
 <p>将列出可用的命令及其功能</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git flow XXX help</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git flow XXX help</div></pre></td></tr></table></figure>
 <p>XXX为<code>git flow</code>中列出的命令</p>
 <p>将列出具体命令支持的操作</p>
 <h3 id="常见操作"><a href="#常见操作" class="headerlink" title="常见操作"></a>常见操作</h3><table>

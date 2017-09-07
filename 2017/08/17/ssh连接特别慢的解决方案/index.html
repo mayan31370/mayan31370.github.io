@@ -1,0 +1,181 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ssh连接特别慢的解决方案 | 天山飞猫 | 一个热爱生活的程序猿</title>
+
+  
+  <meta name="author" content="天山飞猫">
+  
+
+  
+  <meta name="description" content="天山飞猫,mayan31370,java,技术总监">
+  
+
+  
+  
+  <meta name="keywords" content="ubuntu,ssh">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="ssh连接特别慢的解决方案"/>
+
+  <meta property="og:site_name" content="天山飞猫"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="天山飞猫" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">天山飞猫</a>
+    </h1>
+    <p class="site-description">一个热爱生活的程序猿</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/repos">仓库</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>ssh连接特别慢的解决方案</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/08/17/ssh连接特别慢的解决方案/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-08-17T06:31:27.000Z">
+          2017-08-17
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>最近做了不少运维工作，一个之前一直存在但被忽略的问题显的越发的讨厌了。</p>
+<p>就是，当ssh连接服务器的时候，在建立的时候非常慢，但连接上以后，就恢复正常了，今天实在是忍无可忍，终于动手解决了。</p>
+<h2 id="定位问题"><a href="#定位问题" class="headerlink" title="定位问题"></a>定位问题</h2><ol>
+<li>确认网络没有问题</li>
+<li>确认ping到服务器的链路正常</li>
+<li>使用<code>ssh -v host</code>来查看慢的原因</li>
+</ol>
+<p>发现问题出现在此处：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">debug1: Next authentication method: gssapi-with-mic</div><div class="line">debug1: Unspecified GSS failure. Minor code may provide more information</div><div class="line">No credentials cache found</div></pre></td></tr></table></figure></p>
+<p>连接在此处会有一个长时间的等待</p>
+<p>经查询，是在authentication gssapi-with-mic时，消耗了大量的时间</p>
+<h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><p>这个属于客户端的问题，比较好改。</p>
+<p>编辑<code>/etc/ssh/ssh_config</code>,修改：<code>GSSAPIAuthentication yes</code>为<code>GSSAPIAuthentication no</code></p>
+<p>问题解决，并没有花费多长时间。</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/ubuntu-ssh/">ubuntu,ssh</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+	<div id="comment">
+		
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2017/08/17/ssh连接特别慢的解决方案/" data-title="ssh连接特别慢的解决方案" data-url="http://blog.ma-yan.win/2017/08/17/ssh连接特别慢的解决方案/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"mayan31370"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0]
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+
+	</div>
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2017 天山飞猫
+    
+  </p>
+</footer>
+    
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-96760263-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+  </div>
+</div>
+</body>
+</html>
