@@ -65,6 +65,141 @@
 
   
     
+    <h3 class="article-title"><a href="/2017/11/07/使用github和dockerhub搭建自动构建镜像/"><span>使用github和dockerhub搭建自动构建镜像</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/11/07/使用github和dockerhub搭建自动构建镜像/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-11-07T02:13:28.000Z">
+          2017-11-07
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>最近，在工作中需要构建一些docker的公共基础镜像，但每次进行微调时都比较麻烦，所以想自动构建，正好github和dockerhub提供了现成的解决方案。</p>
+<h1 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h1><ul>
+<li>github帐号</li>
+<li>docker帐号</li>
+</ul>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
+<li>创建github仓库</li>
+<li>在docker中的setting里选择Linked Accounts &amp; Services，绑定github帐号</li>
+<li>在docker中，要点击create下拉按钮，选择Create Automated Build</li>
+<li>选择好仓库即可</li>
+</ol>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/git/">git</a><a href="/tags/github/">github</a><a href="/tags/docker/">docker</a>
+    </span>
+    
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2017/11/07/使用github和dockerhub搭建自动构建镜像/#comment">评论</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2017/09/13/spring-boot-data-jpa的JpaRepository的分页器有点奇葩/"><span>spring-boot-data-jpa的JpaRepository的分页器有点奇葩</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/09/13/spring-boot-data-jpa的JpaRepository的分页器有点奇葩/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-09-13T03:51:40.000Z">
+          2017-09-13
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>在使用JpaRepository时，有时我们会用到分页器，既<code>Pageable</code>。</p>
+<p>它有个比较常用的实现<code>PageRequest</code>，但它的构造方法中<code>page</code>比较奇葩，是从0开始的，这和我们常见的前端框架是不一致的，特此记录。</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/spring/">spring</a><a href="/tags/jpa/">jpa</a><a href="/tags/repository/">repository</a>
+    </span>
+    
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2017/09/13/spring-boot-data-jpa的JpaRepository的分页器有点奇葩/#comment">评论</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
     <h3 class="article-title"><a href="/2017/09/07/记一个由docker引发的openvpn不能连接服务器的问题/"><span>记一个由docker引发的openvpn不能连接服务器的问题</span></a></h3>
     
   
@@ -87,7 +222,7 @@
       
         <h2 id="由来"><a href="#由来" class="headerlink" title="由来"></a>由来</h2><p>这几天同事在我们的服务器上搭建了openvpn来增强系统的安全性，并给我创建了一个证书。</p>
 <p>我在可以连接上openvpn，但死活连不了我们服务器，我们一开始都怀疑是证书本身的问题。</p>
-<h2 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h2><p>我们马上找了太windows机器测试，完全正常，没有任何问题。</p>
+<h2 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h2><p>我们马上找了台windows机器测试，完全正常，没有任何问题。</p>
 <p>完了，看来是我的非主流ubuntu系统的问题了。</p>
 <p>正好，手边有另一套系统的openvpn，登录，一切正常。</p>
 <p>难道说，是制作openvpn证书时，要增加什么特殊命令吗？</p>
@@ -122,7 +257,7 @@
 
     <span class="post-tags">
       <i class="icon-tags"></i>
-        <a href="/tags/utunbu/">utunbu</a><a href="/tags/docker/">docker</a><a href="/tags/vpn/">vpn</a>
+        <a href="/tags/docker/">docker</a><a href="/tags/utunbu/">utunbu</a><a href="/tags/vpn/">vpn</a>
     </span>
     
 
