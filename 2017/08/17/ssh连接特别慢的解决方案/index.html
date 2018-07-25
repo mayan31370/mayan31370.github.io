@@ -94,7 +94,7 @@
 <li>确认ping到服务器的链路正常</li>
 <li>使用<code>ssh -v host</code>来查看慢的原因</li>
 </ol>
-<p>发现问题出现在此处：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">debug1: Next authentication method: gssapi-with-mic</div><div class="line">debug1: Unspecified GSS failure. Minor code may provide more information</div><div class="line">No credentials cache found</div></pre></td></tr></table></figure></p>
+<p>发现问题出现在此处：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">debug1: Next authentication method: gssapi-with-mic</span><br><span class="line">debug1: Unspecified GSS failure. Minor code may provide more information</span><br><span class="line">No credentials cache found</span><br></pre></td></tr></table></figure></p>
 <p>连接在此处会有一个长时间的等待</p>
 <p>经查询，是在authentication gssapi-with-mic时，消耗了大量的时间</p>
 <h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><p>这个属于客户端的问题，比较好改。</p>
@@ -127,26 +127,23 @@
 </article>
 
   
-	<div id="comment">
-		
-	<!-- 多说评论框 start -->
-	 <div class="ds-thread" data-thread-key="/2017/08/17/ssh连接特别慢的解决方案/" data-title="ssh连接特别慢的解决方案" data-url="http://blog.ma-yan.win/2017/08/17/ssh连接特别慢的解决方案/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"mayan31370"};
-	  (function() {
-	    var ds = document.createElement('script');
-	    ds.type = 'text/javascript';ds.async = true;
-	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-	    ds.charset = 'UTF-8';
-	    (document.getElementsByTagName('head')[0]
-	     || document.getElementsByTagName('body')[0]).appendChild(ds);
-	  })();
-	  </script>
-	<!-- 多说公共JS代码 end -->
+	<section id="comment" class="comment">
+		<div id="gitment"></div>
+	</section>
+	<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+	<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+	<script>
+		var gitment = new Gitment({
+			owner: 'mayan31370',
+			repo: 'blog',
+			oauth: {
+				client_id: '6b58f962e85184ce86a1',
+				client_secret: '9689421a3e46fca986990f6a98ef83dc35584b1d',
+			},
+		})
+		gitment.render('gitment')
+	</script>
 
-	</div>
 
 
 

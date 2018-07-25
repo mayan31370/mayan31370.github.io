@@ -143,16 +143,16 @@
 </tbody>
 </table>
 <p>也就是说，gitflow的每个操作都是固化的一组git命令</p>
-<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git flow init</div></pre></td></tr></table></figure>
+<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git flow init</span><br></pre></td></tr></table></figure>
 <p>接下来会提几个问题：</p>
 <ol>
 <li>主分支名 master</li>
 <li>开发分支名 dev</li>
 <li>各种分支和tag前缀名 直接回车 使用默认的即可</li>
 </ol>
-<h3 id="获取使用帮助"><a href="#获取使用帮助" class="headerlink" title="获取使用帮助"></a>获取使用帮助</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git flow</div></pre></td></tr></table></figure>
+<h3 id="获取使用帮助"><a href="#获取使用帮助" class="headerlink" title="获取使用帮助"></a>获取使用帮助</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git flow</span><br></pre></td></tr></table></figure>
 <p>将列出可用的命令及其功能</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git flow XXX help</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git flow XXX help</span><br></pre></td></tr></table></figure>
 <p>XXX为<code>git flow</code>中列出的命令</p>
 <p>将列出具体命令支持的操作</p>
 <h3 id="常见操作"><a href="#常见操作" class="headerlink" title="常见操作"></a>常见操作</h3><table>
@@ -260,26 +260,23 @@
 </article>
 
   
-	<div id="comment">
-		
-	<!-- 多说评论框 start -->
-	 <div class="ds-thread" data-thread-key="/2017/03/07/gitflow应用/" data-title="gitflow应用" data-url="http://blog.ma-yan.win/2017/03/07/gitflow应用/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"mayan31370"};
-	  (function() {
-	    var ds = document.createElement('script');
-	    ds.type = 'text/javascript';ds.async = true;
-	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-	    ds.charset = 'UTF-8';
-	    (document.getElementsByTagName('head')[0]
-	     || document.getElementsByTagName('body')[0]).appendChild(ds);
-	  })();
-	  </script>
-	<!-- 多说公共JS代码 end -->
+	<section id="comment" class="comment">
+		<div id="gitment"></div>
+	</section>
+	<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+	<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+	<script>
+		var gitment = new Gitment({
+			owner: 'mayan31370',
+			repo: 'blog',
+			oauth: {
+				client_id: '6b58f962e85184ce86a1',
+				client_secret: '9689421a3e46fca986990f6a98ef83dc35584b1d',
+			},
+		})
+		gitment.render('gitment')
+	</script>
 
-	</div>
 
 
 

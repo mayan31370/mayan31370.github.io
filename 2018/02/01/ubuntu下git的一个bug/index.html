@@ -88,38 +88,38 @@
     <div class="entry">
       
         <p>在使用ubuntu的时候，偶然会遇到在clone项目时出现错误<code>error: RPC failed; curl 56 GnuTLS recv error (-110): The TLS connection was non-properly terminated.</code><br>这是一个从12.04版本开始出现的bug，并且一直没有解决。<br>但是这个问题并不会总是出现，它和项目的大小有着一定的关系。</p>
-<h1 id="一个快速的解决方案"><a href="#一个快速的解决方案" class="headerlink" title="一个快速的解决方案"></a>一个快速的解决方案</h1><p>虽然我们不能clone，但是可以pull/push。所以可以绕开clone命令。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mkdir &#123;项目文件夹&#125;</div><div class="line">cd &#123;项目文件夹&#125;</div><div class="line">git init</div><div class="line">git remote add origin &#123;项目地址&#125;</div><div class="line">git pull</div></pre></td></tr></table></figure></p>
+<h1 id="一个快速的解决方案"><a href="#一个快速的解决方案" class="headerlink" title="一个快速的解决方案"></a>一个快速的解决方案</h1><p>虽然我们不能clone，但是可以pull/push。所以可以绕开clone命令。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#123;项目文件夹&#125;</span><br><span class="line">cd &#123;项目文件夹&#125;</span><br><span class="line">git init</span><br><span class="line">git remote add origin &#123;项目地址&#125;</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure></p>
 <p>这是最简单的一个方案，但是如果你要使用其他gui的客户端，就会遇到问题。</p>
-<h1 id="一个不完善的解决方案"><a href="#一个不完善的解决方案" class="headerlink" title="一个不完善的解决方案"></a>一个不完善的解决方案</h1><p>通过设置git的参数，可以在较小的项目中避开报错。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config http.sslVerify false</div><div class="line">git config --global http.postBuffer 1048576000</div></pre></td></tr></table></figure></p>
+<h1 id="一个不完善的解决方案"><a href="#一个不完善的解决方案" class="headerlink" title="一个不完善的解决方案"></a>一个不完善的解决方案</h1><p>通过设置git的参数，可以在较小的项目中避开报错。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config http.sslVerify false</span><br><span class="line">git config --global http.postBuffer 1048576000</span><br></pre></td></tr></table></figure></p>
 <p>这个方案比较简单，单后遗症最大，碰到稍大一点的项目就会报错，所以最不建议此方案。</p>
 <h1 id="完美解决方案"><a href="#完美解决方案" class="headerlink" title="完美解决方案"></a>完美解决方案</h1><p>这个报错其实是libcurl-gnutls模块的一个bug，想避免此bug，可以重新编译git并让其使用libcurl-openssl来替代libcurl-gnutls。<br>这个方案能完美的解决问题，但比较麻烦，编译的步骤如下：</p>
 <ol>
 <li><p>安装依赖工具</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install build-essential fakeroot dpkg-dev</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install build-essential fakeroot dpkg-dev</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>创建编译git的文件夹并进入</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir ~/git-rectify</div><div class="line">cd git-rectify</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir ~/git-rectify</span><br><span class="line">cd git-rectify</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>下载git源码</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apt-get source git</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get source git</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>安装git依赖</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get build-dep git</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get build-dep git</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>安装openssl模块</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install libcurl4-openssl-dev</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libcurl4-openssl-dev</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>解压源码包</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dpkg-source -x git_xxxx.dsp</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg-source -x git_xxxx.dsp</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>修改编译配置 git_xxx/debian/control 中 libcurl4-gnutls-dev 替换为 libcurl4-openssl-dev</p>
 </li>
 <li>修改编译配置 git_xxx/debian/rules 中 删除 TEST=test 行</li>
 <li><p>打包（在git_xxx目录下）</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo dpkg-buildpackage -rfakeroot -b</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg-buildpackage -rfakeroot -b</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>安装编译好的git</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo dpkg -i git_xxx_amd64.deb</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i git_xxx_amd64.deb</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 
@@ -149,26 +149,23 @@
 </article>
 
   
-	<div id="comment">
-		
-	<!-- 多说评论框 start -->
-	 <div class="ds-thread" data-thread-key="/2018/02/01/ubuntu下git的一个bug/" data-title="Ubuntu下git的一个bug" data-url="http://blog.ma-yan.win/2018/02/01/ubuntu下git的一个bug/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"mayan31370"};
-	  (function() {
-	    var ds = document.createElement('script');
-	    ds.type = 'text/javascript';ds.async = true;
-	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-	    ds.charset = 'UTF-8';
-	    (document.getElementsByTagName('head')[0]
-	     || document.getElementsByTagName('body')[0]).appendChild(ds);
-	  })();
-	  </script>
-	<!-- 多说公共JS代码 end -->
+	<section id="comment" class="comment">
+		<div id="gitment"></div>
+	</section>
+	<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+	<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+	<script>
+		var gitment = new Gitment({
+			owner: 'mayan31370',
+			repo: 'blog',
+			oauth: {
+				client_id: '6b58f962e85184ce86a1',
+				client_secret: '9689421a3e46fca986990f6a98ef83dc35584b1d',
+			},
+		})
+		gitment.render('gitment')
+	</script>
 
-	</div>
 
 
 

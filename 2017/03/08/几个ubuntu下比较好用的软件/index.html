@@ -128,26 +128,23 @@
 </article>
 
   
-	<div id="comment">
-		
-	<!-- 多说评论框 start -->
-	 <div class="ds-thread" data-thread-key="/2017/03/08/几个ubuntu下比较好用的软件/" data-title="几个ubuntu下比较好用的软件" data-url="http://blog.ma-yan.win/2017/03/08/几个ubuntu下比较好用的软件/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"mayan31370"};
-	  (function() {
-	    var ds = document.createElement('script');
-	    ds.type = 'text/javascript';ds.async = true;
-	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-	    ds.charset = 'UTF-8';
-	    (document.getElementsByTagName('head')[0]
-	     || document.getElementsByTagName('body')[0]).appendChild(ds);
-	  })();
-	  </script>
-	<!-- 多说公共JS代码 end -->
+	<section id="comment" class="comment">
+		<div id="gitment"></div>
+	</section>
+	<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+	<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+	<script>
+		var gitment = new Gitment({
+			owner: 'mayan31370',
+			repo: 'blog',
+			oauth: {
+				client_id: '6b58f962e85184ce86a1',
+				client_secret: '9689421a3e46fca986990f6a98ef83dc35584b1d',
+			},
+		})
+		gitment.render('gitment')
+	</script>
 
-	</div>
 
 
 
