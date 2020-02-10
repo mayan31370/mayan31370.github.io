@@ -1,91 +1,475 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
-  
-  <title>记一个由docker引发的openvpn不能连接服务器的问题 | 天山飞猫 | 一个热爱生活的程序猿</title>
+  <title>记一个由docker引发的openvpn不能连接服务器的问题 | 天山飞猫</title>
+  <meta name="keywords" content=" docker , utunbu , vpn ">
+  <meta name="description" content="记一个由docker引发的openvpn不能连接服务器的问题 | 天山飞猫">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="总有些突然想到的灵感">
+<meta property="og:type" content="website">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="http://blog.ma-yan.win/categories/index.html">
+<meta property="og:site_name" content="天山飞猫">
+<meta property="og:description" content="总有些突然想到的灵感">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-16T04:35:39.040Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="categories">
+<meta name="twitter:description" content="总有些突然想到的灵感">
 
-  
-  <meta name="author" content="天山飞猫">
-  
 
-  
-  <meta name="description" content="天山飞猫,mayan31370,java,技术总监">
-  
+<link rel="icon" href="/img/avatar.jpg">
 
-  
-  
-  <meta name="keywords" content="docker,utunbu,vpn">
-  
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
 
-  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
 
-  <meta property="og:title" content="记一个由docker引发的openvpn不能连接服务器的问题"/>
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <meta property="og:site_name" content="天山飞猫"/>
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
 
-  
-  <meta property="og:image" content="/favicon.ico"/>
-  
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
 
-  <link href="/favicon.ico" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="天山飞猫" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.0.1" ></script>
+
 </head>
-
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value="">
+</div>
 
 <body>
-<div class="blog">
-  <div class="content">
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>天山飞猫</span>
+</div>
 
-    <header>
-  <div class="site-branding">
-    <h1 class="site-title">
-      <a href="/">天山飞猫</a>
-    </h1>
-    <p class="site-description">一个热爱生活的程序猿</p>
-  </div>
-  <nav class="site-navigation">
-    <ul>
-      
-        <li><a href="/">主页</a></li>
-      
-        <li><a href="/archives">归档</a></li>
-      
-        <li><a href="/tags">标签</a></li>
-      
-        <li><a href="/repos">仓库</a></li>
-      
-    </ul>
-  </nav>
-</header>
-
-    <main class="site-main posts-loop">
-    <article>
-
-  
+<div class="icon">
     
-    <h3 class="article-title"><span>记一个由docker引发的openvpn不能连接服务器的问题</span></h3>
+        
+        <a title="rss" href="/atom.xml" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
     
-  
+        
+        <a title="github" href="https://github.com/yelog" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="facebook" href="https://www.facebook.com/faker.tops" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-facebook"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+        <a title="instagram" href="https://www.facebook.com/faker.tops" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-instagram"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="reddit" href="https://www.reddit.com/user/yelog/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-reddit"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="weibo" href="http://weibo.com/u/2307534817" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-weibo"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="jianshu" href="https://www.jianshu.com/u/ff56736de7cf" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-jianshu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="zhihu" href="https://www.zhihu.com/people/jaytp/activities" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-zhihu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="oschina" href="https://my.oschina.net/yelog" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-oschina"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="email" href="mailto:jaytp@qq.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=872336115&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="kugou" href="https://www.kugou.com/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-kugou"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="neteasemusic" href="https://music.163.com/#/user/home?id=88151013" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-neteasemusic"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
 
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2017/09/07/记一个由docker引发的openvpn不能连接服务器的问题/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-09-07T08:59:33.000Z">
-          2017-09-07
-        </time>
-      </a>
-    </span>
-  </div>
 
 
-  
 
-  <div class="article-content">
-    <div class="entry">
+<ul>
+    <li><div class="all active">全部文章<small>(10)</small></div></li>
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="10">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode === 13){return false;}">
+        <input id="local-search-input" class="search" type="text" placeholder="Search..." />
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a class="color4">git</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">gitflow</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">spring</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">jpa</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">repository</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">ubuntu</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">ssh</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">代码风格</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">github</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">docker</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">idea</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">tools</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">hexo</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">utunbu</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">vpn</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class=""
+           href="/2017/03/07/gitflow应用/"
+           data-tag="git,gitflow"
+           data-author="" >
+            <span class="post-title" title="gitflow应用">gitflow应用</span>
+            <span class="post-date" title="2017-03-07 20:29:28">2017/03/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2017/09/13/spring-boot-data-jpa的JpaRepository的分页器有点奇葩/"
+           data-tag="spring,jpa,repository"
+           data-author="" >
+            <span class="post-title" title="spring-boot-data-jpa的JpaRepository的分页器有点奇葩">spring-boot-data-jpa的JpaRepository的分页器有点奇葩</span>
+            <span class="post-date" title="2017-09-13 11:51:40">2017/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/2017/08/17/ssh连接特别慢的解决方案/"
+           data-tag="ubuntu,ssh"
+           data-author="" >
+            <span class="post-title" title="ssh连接特别慢的解决方案">ssh连接特别慢的解决方案</span>
+            <span class="post-date" title="2017-08-17 14:31:27">2017/08/17</span>
+        </a>
+        
+        <a  class=""
+           href="/2017/03/23/Google-Java-代码风格指南/"
+           data-tag="代码风格"
+           data-author="" >
+            <span class="post-title" title="Google Java 代码风格指南(中文版)">Google Java 代码风格指南(中文版)</span>
+            <span class="post-date" title="2017-03-23 17:40:46">2017/03/23</span>
+        </a>
+        
+        <a  class=""
+           href="/2017/11/07/使用github和dockerhub搭建自动构建镜像/"
+           data-tag="git,github,docker"
+           data-author="" >
+            <span class="post-title" title="使用github和dockerhub搭建自动构建镜像">使用github和dockerhub搭建自动构建镜像</span>
+            <span class="post-date" title="2017-11-07 10:13:28">2017/11/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2018/02/01/ubuntu下git的一个bug/"
+           data-tag="git,ubuntu"
+           data-author="" >
+            <span class="post-title" title="Ubuntu下git的一个bug">Ubuntu下git的一个bug</span>
+            <span class="post-date" title="2018-02-01 14:02:57">2018/02/01</span>
+        </a>
+        
+        <a  class=""
+           href="/2017/03/08/我在IDEA下常用的plugins/"
+           data-tag="idea,tools"
+           data-author="" >
+            <span class="post-title" title="我在IDEA下常用的plugins">我在IDEA下常用的plugins</span>
+            <span class="post-date" title="2017-03-08 08:16:33">2017/03/08</span>
+        </a>
+        
+        <a  class=""
+           href="/2017/03/08/用hexo和github搭建自己的静态博客/"
+           data-tag="git,hexo"
+           data-author="" >
+            <span class="post-title" title="用hexo和github搭建自己的静态博客">用hexo和github搭建自己的静态博客</span>
+            <span class="post-date" title="2017-03-08 08:15:08">2017/03/08</span>
+        </a>
+        
+        <a  class=""
+           href="/2017/09/07/记一个由docker引发的openvpn不能连接服务器的问题/"
+           data-tag="docker,utunbu,vpn"
+           data-author="" >
+            <span class="post-title" title="记一个由docker引发的openvpn不能连接服务器的问题">记一个由docker引发的openvpn不能连接服务器的问题</span>
+            <span class="post-date" title="2017-09-07 16:59:33">2017/09/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2017/03/08/几个ubuntu下比较好用的软件/"
+           data-tag="ubuntu,tools"
+           data-author="" >
+            <span class="post-title" title="几个ubuntu下比较好用的软件">几个ubuntu下比较好用的软件</span>
+            <span class="post-date" title="2017-03-08 08:14:36">2017/03/08</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-记一个由docker引发的openvpn不能连接服务器的问题" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">记一个由docker引发的openvpn不能连接服务器的问题</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        
+        <span class="tag">
+            
+            <a class="color2">docker</a>
+            
+            <a class="color2">utunbu</a>
+            
+            <a class="color4">vpn</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-08-16 12:35:38'>2017-09-07 16:59</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#由来"><span class="toc-text">由来</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定位"><span class="toc-text">定位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#灵感"><span class="toc-text">灵感</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决"><span class="toc-text">解决</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
       
         <h2 id="由来"><a href="#由来" class="headerlink" title="由来"></a>由来</h2><p>这几天同事在我们的服务器上搭建了openvpn来增强系统的安全性，并给我创建了一个证书。</p>
 <p>我在可以连接上openvpn，但死活连不了我们服务器，我们一开始都怀疑是证书本身的问题。</p>
@@ -102,85 +486,337 @@
 <li>我可以ping通172.17.0.1</li>
 <li>但我ping172.17.110.110时报host unreachable</li>
 </ul>
-<p>这是一个非常重要的信息，但我就是没有get到任何东西，直到我敲出一下命令<code>ifconfig</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">docker0   Link encap:以太网  硬件地址 02:42:02:7b:ee:bd  </span><br><span class="line">          inet 地址:172.17.0.1  广播:0.0.0.0  掩码:255.255.255.0</span><br><span class="line">          UP BROADCAST MULTICAST  MTU:1500  跃点数:1</span><br><span class="line">          接收数据包:0 错误:0 丢弃:0 过载:0 帧数:0</span><br><span class="line">          发送数据包:0 错误:0 丢弃:0 过载:0 载波:0</span><br><span class="line">          碰撞:0 发送队列长度:0 </span><br><span class="line">          接收字节:0 (0.0 B)  发送字节:0 (0.0 B)</span><br><span class="line"></span><br><span class="line">lo        Link encap:本地环回  </span><br><span class="line">          inet 地址:127.0.0.1  掩码:255.0.0.0</span><br><span class="line">          inet6 地址: ::1/128 Scope:Host</span><br><span class="line">          UP LOOPBACK RUNNING  MTU:65536  跃点数:1</span><br><span class="line">          接收数据包:301877 错误:0 丢弃:0 过载:0 帧数:0</span><br><span class="line">          发送数据包:301877 错误:0 丢弃:0 过载:0 载波:0</span><br><span class="line">          碰撞:0 发送队列长度:1000 </span><br><span class="line">          接收字节:30098878 (30.0 MB)  发送字节:30098878 (30.0 MB)</span><br><span class="line"></span><br><span class="line">wlp3s0    Link encap:以太网  硬件地址 84:3a:4b:72:c3:a8  </span><br><span class="line">          inet 地址:192.168.1.101  广播:192.168.1.255  掩码:255.255.255.0</span><br><span class="line">          inet6 地址: fe80::65ab:bf3e:553f:dfdc/64 Scope:Link</span><br><span class="line">          UP BROADCAST RUNNING MULTICAST  MTU:1500  跃点数:1</span><br><span class="line">          接收数据包:627535 错误:0 丢弃:0 过载:0 帧数:0</span><br><span class="line">          发送数据包:468397 错误:0 丢弃:0 过载:0 载波:0</span><br><span class="line">          碰撞:0 发送队列长度:1000 </span><br><span class="line">          接收字节:402035116 (402.0 MB)  发送字节:52318029 (52.3 MB)</span><br></pre></td></tr></table></figure></p>
-<p>Oh my ladygaga!!</p>
+<p>这是一个非常重要的信息，但我就是没有get到任何东西，直到我敲出一下命令<code>ifconfig</code></p>
+<pre><code>docker0   Link encap:以太网  硬件地址 02:42:02:7b:ee:bd  
+          inet 地址:172.17.0.1  广播:0.0.0.0  掩码:255.255.255.0
+          UP BROADCAST MULTICAST  MTU:1500  跃点数:1
+          接收数据包:0 错误:0 丢弃:0 过载:0 帧数:0
+          发送数据包:0 错误:0 丢弃:0 过载:0 载波:0
+          碰撞:0 发送队列长度:0 
+          接收字节:0 (0.0 B)  发送字节:0 (0.0 B)
+
+lo        Link encap:本地环回  
+          inet 地址:127.0.0.1  掩码:255.0.0.0
+          inet6 地址: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  跃点数:1
+          接收数据包:301877 错误:0 丢弃:0 过载:0 帧数:0
+          发送数据包:301877 错误:0 丢弃:0 过载:0 载波:0
+          碰撞:0 发送队列长度:1000 
+          接收字节:30098878 (30.0 MB)  发送字节:30098878 (30.0 MB)
+
+wlp3s0    Link encap:以太网  硬件地址 84:3a:4b:72:c3:a8  
+          inet 地址:192.168.1.101  广播:192.168.1.255  掩码:255.255.255.0
+          inet6 地址: fe80::65ab:bf3e:553f:dfdc/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  跃点数:1
+          接收数据包:627535 错误:0 丢弃:0 过载:0 帧数:0
+          发送数据包:468397 错误:0 丢弃:0 过载:0 载波:0
+          碰撞:0 发送队列长度:1000 
+          接收字节:402035116 (402.0 MB)  发送字节:52318029 (52.3 MB)
+</code></pre><p>Oh my ladygaga!!</p>
 <p>我终于找到原因，是我的vpn路由设置不起作用导致的连不到，而最终原因却是docker建立的虚拟网桥和我们服务器的网段居然一样！！！</p>
 <h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>找到dockerd的启动命令<code>/lib/systemd/system/docker.service</code></p>
 <p>修改<code>ExecStart=/usr/bin/dockerd -H fd:// $DOCKER_OPTS</code>为<code>ExecStart=/usr/bin/dockerd -H fd:// --bip 172.16.0.1/24 $DOCKER_OPTS</code></p>
 <p>重启docker后，在拨vpn，问题解决。</p>
 
       
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
     </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/docker/">docker</a><a href="/tags/utunbu/">utunbu</a><a href="/tags/vpn/">vpn</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
 </article>
 
-  
-	<section id="comment" class="comment">
-		<div id="gitment"></div>
-	</section>
-	<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-	<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-	<script>
-		var gitment = new Gitment({
-			owner: 'mayan31370',
-			repo: 'blog',
-			oauth: {
-				client_id: '6b58f962e85184ce86a1',
-				client_secret: '9689421a3e46fca986990f6a98ef83dc35584b1d',
-			},
-		})
-		gitment.render('gitment')
-	</script>
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
 
 
-
-
-
-    </main>
-
-    <footer class="site-footer">
-  <p class="site-info">
-    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
-    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
-    </br>
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>记一个由docker引发的openvpn不能连接服务器的问题</p>
     
-    &copy; 2018 天山飞猫
+    <p><span class="copy-title">本文作者:</span><a  title="天山飞猫">天山飞猫</a></p>
+    <p><span class="copy-title">发布时间:</span>2017-09-07, 16:59:33</p>
+    <p><span class="copy-title">最后更新:</span>2019-08-16, 12:35:38</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2017/09/07/记一个由docker引发的openvpn不能连接服务器的问题/" title="记一个由docker引发的openvpn不能连接服务器的问题">http://blog.ma-yan.win/2017/09/07/记一个由docker引发的openvpn不能连接服务器的问题/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
     
-  </p>
-</footer>
-    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 Yelog</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
 <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#git','#gitflow','#spring','#jpa','#repository','#ubuntu','#ssh','#代码风格','#github','#docker','#idea','#tools','#hexo','#utunbu','#vpn',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
 
-    ga('create', 'UA-96760263-1', 'auto');
-    ga('send', 'pageview');
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
 
 </script>
 
-  </div>
-</div>
-</body>
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
 </html>

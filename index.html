@@ -1,1374 +1,725 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
-  
-  <title>天山飞猫 | 一个热爱生活的程序猿</title>
+  <title>天山飞猫</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="天山飞猫">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="总有些突然想到的灵感">
+<meta property="og:type" content="website">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="http://blog.ma-yan.win/categories/index.html">
+<meta property="og:site_name" content="天山飞猫">
+<meta property="og:description" content="总有些突然想到的灵感">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-16T04:35:39.040Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="categories">
+<meta name="twitter:description" content="总有些突然想到的灵感">
 
-  
-  <meta name="author" content="天山飞猫">
-  
 
-  
-  <meta name="description" content="天山飞猫,mayan31370,java,技术总监">
-  
+<link rel="icon" href="/img/avatar.jpg">
 
-  
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
 
-  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
 
-  
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <meta property="og:site_name" content="天山飞猫"/>
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
 
-  
-  <meta property="og:image" content="/favicon.ico"/>
-  
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
 
-  <link href="/favicon.ico" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="天山飞猫" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.0.1" ></script>
+
 </head>
-
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value="">
+</div>
 
 <body>
-<div class="blog">
-  <div class="content">
+<aside class="nav mobile">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>天山飞猫</span>
+</div>
 
-    <header>
-  <div class="site-branding">
-    <h1 class="site-title">
-      <a href="/">天山飞猫</a>
-    </h1>
-    <p class="site-description">一个热爱生活的程序猿</p>
-  </div>
-  <nav class="site-navigation">
-    <ul>
-      
-        <li><a href="/">主页</a></li>
-      
-        <li><a href="/archives">归档</a></li>
-      
-        <li><a href="/tags">标签</a></li>
-      
-        <li><a href="/repos">仓库</a></li>
-      
-    </ul>
-  </nav>
-</header>
-
-    <main class="site-main posts-loop">
+<div class="icon">
     
-  <article>
-
-  
+        
+        <a title="rss" href="/atom.xml" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
     
-    <h3 class="article-title"><a href="/2018/02/01/ubuntu下git的一个bug/"><span>Ubuntu下git的一个bug</span></a></h3>
+        
+        <a title="github" href="https://github.com/yelog" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
     
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2018/02/01/ubuntu下git的一个bug/" rel="bookmark">
-        <time class="entry-date published" datetime="2018-02-01T06:02:57.000Z">
-          2018-02-01
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>在使用ubuntu的时候，偶然会遇到在clone项目时出现错误<code>error: RPC failed; curl 56 GnuTLS recv error (-110): The TLS connection was non-properly terminated.</code><br>这是一个从12.04版本开始出现的bug，并且一直没有解决。<br>但是这个问题并不会总是出现，它和项目的大小有着一定的关系。</p>
-<h1 id="一个快速的解决方案"><a href="#一个快速的解决方案" class="headerlink" title="一个快速的解决方案"></a>一个快速的解决方案</h1><p>虽然我们不能clone，但是可以pull/push。所以可以绕开clone命令。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#123;项目文件夹&#125;</span><br><span class="line">cd &#123;项目文件夹&#125;</span><br><span class="line">git init</span><br><span class="line">git remote add origin &#123;项目地址&#125;</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure></p>
-<p>这是最简单的一个方案，但是如果你要使用其他gui的客户端，就会遇到问题。</p>
-<h1 id="一个不完善的解决方案"><a href="#一个不完善的解决方案" class="headerlink" title="一个不完善的解决方案"></a>一个不完善的解决方案</h1><p>通过设置git的参数，可以在较小的项目中避开报错。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config http.sslVerify false</span><br><span class="line">git config --global http.postBuffer 1048576000</span><br></pre></td></tr></table></figure></p>
-<p>这个方案比较简单，单后遗症最大，碰到稍大一点的项目就会报错，所以最不建议此方案。</p>
-<h1 id="完美解决方案"><a href="#完美解决方案" class="headerlink" title="完美解决方案"></a>完美解决方案</h1><p>这个报错其实是libcurl-gnutls模块的一个bug，想避免此bug，可以重新编译git并让其使用libcurl-openssl来替代libcurl-gnutls。<br>这个方案能完美的解决问题，但比较麻烦，编译的步骤如下：</p>
-<ol>
-<li><p>安装依赖工具</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install build-essential fakeroot dpkg-dev</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建编译git的文件夹并进入</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir ~/git-rectify</span><br><span class="line">cd git-rectify</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>下载git源码</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get source git</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装git依赖</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get build-dep git</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装openssl模块</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libcurl4-openssl-dev</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>解压源码包</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg-source -x git_xxxx.dsp</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>修改编译配置 git_xxx/debian/control 中 libcurl4-gnutls-dev 替换为 libcurl4-openssl-dev</p>
-</li>
-<li>修改编译配置 git_xxx/debian/rules 中 删除 TEST=test 行</li>
-<li><p>打包（在git_xxx目录下）</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg-buildpackage -rfakeroot -b</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装编译好的git</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i git_xxx_amd64.deb</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
+        
+        <a title="facebook" href="https://www.facebook.com/faker.tops" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-facebook"></use>
+                </svg>
+            
+        </a>
+        
     
-
+        
     
+        
     
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/git/">git</a><a href="/tags/ubuntu/">ubuntu</a>
-    </span>
+        
+        <a title="instagram" href="https://www.facebook.com/faker.tops" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-instagram"></use>
+                </svg>
+            
+        </a>
+        
     
-
-    </div>
-
+        
+        <a title="reddit" href="https://www.reddit.com/user/yelog/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-reddit"></use>
+                </svg>
+            
+        </a>
+        
     
-    <div class="article-meta pull-right">
-      <span>
-        <i class="icon-comments"></i>
-        <span>
-          <a href="/2018/02/01/ubuntu下git的一个bug/#comment">评论</a>
-        </span>
-      </span>
-    </div>
+        
+        <a title="weibo" href="http://weibo.com/u/2307534817" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-weibo"></use>
+                </svg>
+            
+        </a>
+        
     
-  </div>
-</article>
-
-
-
-  <article>
-
-  
+        
+        <a title="jianshu" href="https://www.jianshu.com/u/ff56736de7cf" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-jianshu"></use>
+                </svg>
+            
+        </a>
+        
     
-    <h3 class="article-title"><a href="/2017/11/07/使用github和dockerhub搭建自动构建镜像/"><span>使用github和dockerhub搭建自动构建镜像</span></a></h3>
+        
+        <a title="zhihu" href="https://www.zhihu.com/people/jaytp/activities" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-zhihu"></use>
+                </svg>
+            
+        </a>
+        
     
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2017/11/07/使用github和dockerhub搭建自动构建镜像/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-11-07T02:13:28.000Z">
-          2017-11-07
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>最近，在工作中需要构建一些docker的公共基础镜像，但每次进行微调时都比较麻烦，所以想自动构建，正好github和dockerhub提供了现成的解决方案。</p>
-<h1 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h1><ul>
-<li>github帐号</li>
-<li>docker帐号</li>
-</ul>
-<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
-<li>创建github仓库</li>
-<li>在docker中的setting里选择Linked Accounts &amp; Services，绑定github帐号</li>
-<li>在docker中，要点击create下拉按钮，选择Create Automated Build</li>
-<li>选择好仓库即可</li>
-</ol>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
+        
     
-
+        
+        <a title="oschina" href="https://my.oschina.net/yelog" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-oschina"></use>
+                </svg>
+            
+        </a>
+        
     
+        
     
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/git/">git</a><a href="/tags/github/">github</a><a href="/tags/docker/">docker</a>
-    </span>
+        
+        <a title="email" href="mailto:jaytp@qq.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
     
-
-    </div>
-
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=872336115&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
     
-    <div class="article-meta pull-right">
-      <span>
-        <i class="icon-comments"></i>
-        <span>
-          <a href="/2017/11/07/使用github和dockerhub搭建自动构建镜像/#comment">评论</a>
-        </span>
-      </span>
-    </div>
+        
+        <a title="kugou" href="https://www.kugou.com/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-kugou"></use>
+                </svg>
+            
+        </a>
+        
     
-  </div>
-</article>
-
-
-
-  <article>
-
-  
+        
+        <a title="neteasemusic" href="https://music.163.com/#/user/home?id=88151013" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-neteasemusic"></use>
+                </svg>
+            
+        </a>
+        
     
-    <h3 class="article-title"><a href="/2017/09/13/spring-boot-data-jpa的JpaRepository的分页器有点奇葩/"><span>spring-boot-data-jpa的JpaRepository的分页器有点奇葩</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2017/09/13/spring-boot-data-jpa的JpaRepository的分页器有点奇葩/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-09-13T03:51:40.000Z">
-          2017-09-13
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>在使用JpaRepository时，有时我们会用到分页器，既<code>Pageable</code>。</p>
-<p>它有个比较常用的实现<code>PageRequest</code>，但它的构造方法中<code>page</code>比较奇葩，是从0开始的，这和我们常见的前端框架是不一致的，特此记录。</p>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/spring/">spring</a><a href="/tags/jpa/">jpa</a><a href="/tags/repository/">repository</a>
-    </span>
-    
-
-    </div>
-
-    
-    <div class="article-meta pull-right">
-      <span>
-        <i class="icon-comments"></i>
-        <span>
-          <a href="/2017/09/13/spring-boot-data-jpa的JpaRepository的分页器有点奇葩/#comment">评论</a>
-        </span>
-      </span>
-    </div>
-    
-  </div>
-</article>
+</div>
 
 
 
-  <article>
 
-  
-    
-    <h3 class="article-title"><a href="/2017/09/07/记一个由docker引发的openvpn不能连接服务器的问题/"><span>记一个由docker引发的openvpn不能连接服务器的问题</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2017/09/07/记一个由docker引发的openvpn不能连接服务器的问题/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-09-07T08:59:33.000Z">
-          2017-09-07
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <h2 id="由来"><a href="#由来" class="headerlink" title="由来"></a>由来</h2><p>这几天同事在我们的服务器上搭建了openvpn来增强系统的安全性，并给我创建了一个证书。</p>
-<p>我在可以连接上openvpn，但死活连不了我们服务器，我们一开始都怀疑是证书本身的问题。</p>
-<h2 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h2><p>我们马上找了台windows机器测试，完全正常，没有任何问题。</p>
-<p>完了，看来是我的非主流ubuntu系统的问题了。</p>
-<p>正好，手边有另一套系统的openvpn，登录，一切正常。</p>
-<p>难道说，是制作openvpn证书时，要增加什么特殊命令吗？</p>
-<p>打开两个证书，对比了一下，并没有什么特殊之处。</p>
-<p>完了，遇到迷之问题了。</p>
-<p>准备洗洗睡了。。。。</p>
-<h2 id="灵感"><a href="#灵感" class="headerlink" title="灵感"></a>灵感</h2><p>在查找问题的时候我忽略了一个问题，就是：</p>
 <ul>
-<li>我们服务器地址为 172.17.110.110</li>
-<li>我可以ping通172.17.0.1</li>
-<li>但我ping172.17.110.110时报host unreachable</li>
+    <li><div class="all active">全部文章<small>(10)</small></div></li>
+    
 </ul>
-<p>这是一个非常重要的信息，但我就是没有get到任何东西，直到我敲出一下命令<code>ifconfig</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">docker0   Link encap:以太网  硬件地址 02:42:02:7b:ee:bd  </span><br><span class="line">          inet 地址:172.17.0.1  广播:0.0.0.0  掩码:255.255.255.0</span><br><span class="line">          UP BROADCAST MULTICAST  MTU:1500  跃点数:1</span><br><span class="line">          接收数据包:0 错误:0 丢弃:0 过载:0 帧数:0</span><br><span class="line">          发送数据包:0 错误:0 丢弃:0 过载:0 载波:0</span><br><span class="line">          碰撞:0 发送队列长度:0 </span><br><span class="line">          接收字节:0 (0.0 B)  发送字节:0 (0.0 B)</span><br><span class="line"></span><br><span class="line">lo        Link encap:本地环回  </span><br><span class="line">          inet 地址:127.0.0.1  掩码:255.0.0.0</span><br><span class="line">          inet6 地址: ::1/128 Scope:Host</span><br><span class="line">          UP LOOPBACK RUNNING  MTU:65536  跃点数:1</span><br><span class="line">          接收数据包:301877 错误:0 丢弃:0 过载:0 帧数:0</span><br><span class="line">          发送数据包:301877 错误:0 丢弃:0 过载:0 载波:0</span><br><span class="line">          碰撞:0 发送队列长度:1000 </span><br><span class="line">          接收字节:30098878 (30.0 MB)  发送字节:30098878 (30.0 MB)</span><br><span class="line"></span><br><span class="line">wlp3s0    Link encap:以太网  硬件地址 84:3a:4b:72:c3:a8  </span><br><span class="line">          inet 地址:192.168.1.101  广播:192.168.1.255  掩码:255.255.255.0</span><br><span class="line">          inet6 地址: fe80::65ab:bf3e:553f:dfdc/64 Scope:Link</span><br><span class="line">          UP BROADCAST RUNNING MULTICAST  MTU:1500  跃点数:1</span><br><span class="line">          接收数据包:627535 错误:0 丢弃:0 过载:0 帧数:0</span><br><span class="line">          发送数据包:468397 错误:0 丢弃:0 过载:0 载波:0</span><br><span class="line">          碰撞:0 发送队列长度:1000 </span><br><span class="line">          接收字节:402035116 (402.0 MB)  发送字节:52318029 (52.3 MB)</span><br></pre></td></tr></table></figure></p>
-<p>Oh my ladygaga!!</p>
-<p>我终于找到原因，是我的vpn路由设置不起作用导致的连不到，而最终原因却是docker建立的虚拟网桥和我们服务器的网段居然一样！！！</p>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>找到dockerd的启动命令<code>/lib/systemd/system/docker.service</code></p>
-<p>修改<code>ExecStart=/usr/bin/dockerd -H fd:// $DOCKER_OPTS</code>为<code>ExecStart=/usr/bin/dockerd -H fd:// --bip 172.16.0.1/24 $DOCKER_OPTS</code></p>
-<p>重启docker后，在拨vpn，问题解决。</p>
-
-      
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
     </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="10">
 
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/docker/">docker</a><a href="/tags/utunbu/">utunbu</a><a href="/tags/vpn/">vpn</a>
-    </span>
-    
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
 
     </div>
-
-    
-    <div class="article-meta pull-right">
-      <span>
-        <i class="icon-comments"></i>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode === 13){return false;}">
+        <input id="local-search-input" class="search" type="text" placeholder="Search..." />
+        <i class="cross"></i>
         <span>
-          <a href="/2017/09/07/记一个由docker引发的openvpn不能连接服务器的问题/#comment">评论</a>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
         </span>
-      </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a class="color4">git</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">gitflow</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">spring</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">jpa</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">repository</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">ubuntu</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">ssh</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">代码风格</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">github</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">docker</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">idea</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">tools</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">hexo</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">utunbu</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">vpn</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class=""
+           href="/2017/03/07/gitflow应用/"
+           data-tag="git,gitflow"
+           data-author="" >
+            <span class="post-title" title="gitflow应用">gitflow应用</span>
+            <span class="post-date" title="2017-03-07 20:29:28">2017/03/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2017/09/13/spring-boot-data-jpa的JpaRepository的分页器有点奇葩/"
+           data-tag="spring,jpa,repository"
+           data-author="" >
+            <span class="post-title" title="spring-boot-data-jpa的JpaRepository的分页器有点奇葩">spring-boot-data-jpa的JpaRepository的分页器有点奇葩</span>
+            <span class="post-date" title="2017-09-13 11:51:40">2017/09/13</span>
+        </a>
+        
+        <a  class=""
+           href="/2017/08/17/ssh连接特别慢的解决方案/"
+           data-tag="ubuntu,ssh"
+           data-author="" >
+            <span class="post-title" title="ssh连接特别慢的解决方案">ssh连接特别慢的解决方案</span>
+            <span class="post-date" title="2017-08-17 14:31:27">2017/08/17</span>
+        </a>
+        
+        <a  class=""
+           href="/2017/03/23/Google-Java-代码风格指南/"
+           data-tag="代码风格"
+           data-author="" >
+            <span class="post-title" title="Google Java 代码风格指南(中文版)">Google Java 代码风格指南(中文版)</span>
+            <span class="post-date" title="2017-03-23 17:40:46">2017/03/23</span>
+        </a>
+        
+        <a  class=""
+           href="/2017/11/07/使用github和dockerhub搭建自动构建镜像/"
+           data-tag="git,github,docker"
+           data-author="" >
+            <span class="post-title" title="使用github和dockerhub搭建自动构建镜像">使用github和dockerhub搭建自动构建镜像</span>
+            <span class="post-date" title="2017-11-07 10:13:28">2017/11/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2018/02/01/ubuntu下git的一个bug/"
+           data-tag="git,ubuntu"
+           data-author="" >
+            <span class="post-title" title="Ubuntu下git的一个bug">Ubuntu下git的一个bug</span>
+            <span class="post-date" title="2018-02-01 14:02:57">2018/02/01</span>
+        </a>
+        
+        <a  class=""
+           href="/2017/03/08/我在IDEA下常用的plugins/"
+           data-tag="idea,tools"
+           data-author="" >
+            <span class="post-title" title="我在IDEA下常用的plugins">我在IDEA下常用的plugins</span>
+            <span class="post-date" title="2017-03-08 08:16:33">2017/03/08</span>
+        </a>
+        
+        <a  class=""
+           href="/2017/03/08/用hexo和github搭建自己的静态博客/"
+           data-tag="git,hexo"
+           data-author="" >
+            <span class="post-title" title="用hexo和github搭建自己的静态博客">用hexo和github搭建自己的静态博客</span>
+            <span class="post-date" title="2017-03-08 08:15:08">2017/03/08</span>
+        </a>
+        
+        <a  class=""
+           href="/2017/09/07/记一个由docker引发的openvpn不能连接服务器的问题/"
+           data-tag="docker,utunbu,vpn"
+           data-author="" >
+            <span class="post-title" title="记一个由docker引发的openvpn不能连接服务器的问题">记一个由docker引发的openvpn不能连接服务器的问题</span>
+            <span class="post-date" title="2017-09-07 16:59:33">2017/09/07</span>
+        </a>
+        
+        <a  class=""
+           href="/2017/03/08/几个ubuntu下比较好用的软件/"
+           data-tag="ubuntu,tools"
+           data-author="" >
+            <span class="post-title" title="几个ubuntu下比较好用的软件">几个ubuntu下比较好用的软件</span>
+            <span class="post-date" title="2017-03-08 08:14:36">2017/03/08</span>
+        </a>
+        
+    </nav>
+</div>
     </div>
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2017/08/17/ssh连接特别慢的解决方案/"><span>ssh连接特别慢的解决方案</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2017/08/17/ssh连接特别慢的解决方案/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-08-17T06:31:27.000Z">
-          2017-08-17
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>最近做了不少运维工作，一个之前一直存在但被忽略的问题显的越发的讨厌了。</p>
-<p>就是，当ssh连接服务器的时候，在建立的时候非常慢，但连接上以后，就恢复正常了，今天实在是忍无可忍，终于动手解决了。</p>
-<h2 id="定位问题"><a href="#定位问题" class="headerlink" title="定位问题"></a>定位问题</h2><ol>
-<li>确认网络没有问题</li>
-<li>确认ping到服务器的链路正常</li>
-<li>使用<code>ssh -v host</code>来查看慢的原因</li>
-</ol>
-<p>发现问题出现在此处：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">debug1: Next authentication method: gssapi-with-mic</span><br><span class="line">debug1: Unspecified GSS failure. Minor code may provide more information</span><br><span class="line">No credentials cache found</span><br></pre></td></tr></table></figure></p>
-<p>连接在此处会有一个长时间的等待</p>
-<p>经查询，是在authentication gssapi-with-mic时，消耗了大量的时间</p>
-<h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><p>这个属于客户端的问题，比较好改。</p>
-<p>编辑<code>/etc/ssh/ssh_config</code>,修改：<code>GSSAPIAuthentication yes</code>为<code>GSSAPIAuthentication no</code></p>
-<p>问题解决，并没有花费多长时间。</p>
-
-      
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
     </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
+</aside>
+<div class="post index">
+    <div class="pjax">
+        <article class="index">
+            <div class="toc-ref">
     
-
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Why-Blog"><span class="toc-text">Why Blog</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#对博客的理解"><span class="toc-text">对博客的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于叶落阁"><span class="toc-text">关于叶落阁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#博客平台"><span class="toc-text">博客平台</span></a></li></ol></li></ol>
     
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/ubuntu/">ubuntu</a><a href="/tags/ssh/">ssh</a>
-    </span>
-    
-
-    </div>
-
-    
-    <div class="article-meta pull-right">
-      <span>
-        <i class="icon-comments"></i>
-        <span>
-          <a href="/2017/08/17/ssh连接特别慢的解决方案/#comment">评论</a>
-        </span>
-      </span>
-    </div>
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2017/03/23/Google-Java-代码风格指南/"><span>Google Java 代码风格指南(中文版)</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2017/03/23/Google-Java-代码风格指南/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-03-23T09:40:46.000Z">
-          2017-03-23
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p><strong>翻译中，目前进度75%</strong><br><a href="https://google.github.io/styleguide/javaguide.html" target="_blank" rel="noopener">原文链接</a></p>
-<p><em>P.S.</em> 翻译水平有限，希望大家能提供好的建议和指正。</p>
-<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><ul>
-<li><a href="#1-简介">1 简介</a></li>
-<li><ul>
-<li><a href="#1-1-术语注意事项">1.1 术语注意事项</a></li>
-</ul>
-</li>
-<li><ul>
-<li><a href="#1-2-指南注意事项">1.2 指南注意事项</a></li>
-</ul>
-</li>
-<li><a href="#2-源码基础风格">2 源码基础风格</a></li>
-<li><ul>
-<li><a href="#2-1-文件名">2.1 文件名</a></li>
-</ul>
-</li>
-<li><ul>
-<li><a href="#2-2-文件编码:UTF-8">2.2 文件编码:UTF-8</a></li>
-</ul>
-</li>
-<li><ul>
-<li><a href="#2-3-特殊字符">2.3 特殊字符</a></li>
-</ul>
-</li>
-<li><a href="#3-源码文件结构">3 源码文件结构</a></li>
-<li><ul>
-<li><a href="#3-1-如果存在，请添加License或copyright信息">3.1 如果存在，请添加License或copyright信息</a></li>
-</ul>
-</li>
-<li><ul>
-<li><a href="#3-2-package语句">3.2 package语句</a></li>
-</ul>
-</li>
-<li><ul>
-<li><a href="#3-3-import语句">3.3 import语句</a></li>
-</ul>
-</li>
-<li><ul>
-<li><a href="#3-4-class声明">3.4 class声明</a></li>
-</ul>
-</li>
-<li><a href="#4-格式化">4 格式化</a></li>
-<li><ul>
-<li><a href="#4-1-括号">4.1 括号</a></li>
-</ul>
-</li>
-<li><ul>
-<li><a href="#4-2-代码块儿缩进-2空格">4.2 代码块儿缩进:+2空格</a></li>
-</ul>
-</li>
-<li><ul>
-<li><a href="#4-3-每行一个语句">4.3 每行一个语句</a></li>
-</ul>
-</li>
-<li><ul>
-<li><a href="#4-4-列宽-100">4.4 列宽:100</a></li>
-</ul>
-</li>
-<li><ul>
-<li><a href="#4-5-换行">4.5 换行</a></li>
-</ul>
-</li>
-<li><ul>
-<li><a href="#4-6-空白符">4.6 空白符</a></li>
-</ul>
-</li>
-<li><ul>
-<li><a href="#4-7-分组括号">4.7 分组括号</a></li>
-</ul>
-</li>
-<li><ul>
-<li><a href="#4-8-特殊结构">4.8 特殊结构</a></li>
-</ul>
-</li>
-<li><a href="#5-命名">5 命名</a></li>
-<li><ul>
-<li><a href="#5-1-通用规则">5.1 通用规则</a></li>
-</ul>
-</li>
-<li><ul>
-<li><a href="#5-2-不同标识符的规则">5.2 不同标识符的规则</a></li>
-</ul>
-</li>
-<li><ul>
-<li><a href="#5-3-驼峰命名">5.3 驼峰命名</a></li>
-</ul>
-</li>
-<li><a href="#6-编程规范">6 编程规范</a></li>
-<li><ul>
-<li><a href="#6-1-必须使用-Override">6.1 必须使用 @Override</a></li>
-</ul>
-</li>
-<li><ul>
-<li><a href="#6-2-不能忽略已捕获的异常">6.2 不能忽略已捕获的异常</a></li>
-</ul>
-</li>
-<li><ul>
-<li><a href="#6-3-使用类来访问静态成员">6.3 使用类来访问静态成员</a></li>
-</ul>
-</li>
-<li><ul>
-<li><a href="#6-4-禁止使用-Finalizers">6.4 禁止使用 Finalizers</a></li>
-</ul>
-</li>
-<li><a href="#7-Javadoc">7 Javadoc</a></li>
-<li><ul>
-<li><a href="#7-1-格式化">7.1 格式化</a></li>
-</ul>
-</li>
-<li><ul>
-<li><a href="#7-2-摘要">7.2 摘要</a></li>
-</ul>
-</li>
-<li><ul>
-<li><a href="#7-3-在什么地方使用-Javadoc">7.3 在什么地方使用 Javadoc</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1 简介"></a>1 简介</h2><h3 id="1-1-术语"><a href="#1-1-术语" class="headerlink" title="1.1 术语"></a>1.1 术语</h3><p>本文档中除非特别说明，否则遵循以下规则：</p>
-<ol>
-<li><em>class</em> 表示“普通”类、枚举类、接口或注解类(<code>@interface</code>)</li>
-<li>(类中的) <em>member</em> 一般表示内部类、成员、方法或构造器，也就是说包含顶级类中除了初始化块和注释全部内容。</li>
-<li><em>comment</em> 特指直接注释。我们不使用“文档注释”这个词，而是直接使用”Javadoc”。</li>
-</ol>
-<p>其他局部注意事项将在本文中不时出现。</p>
-<h3 id="1-2-指南"><a href="#1-2-指南" class="headerlink" title="1.2 指南"></a>1.2 指南</h3><p>所有示例代码都是 <strong>不规范</strong> 的。也就是说，尽管例子是使用的Google风格，但仅仅只是展示代码风格。</p>
-<h2 id="2-源码基础风格"><a href="#2-源码基础风格" class="headerlink" title="2 源码基础风格"></a>2 源码基础风格</h2><h3 id="2-1-文件名"><a href="#2-1-文件名" class="headerlink" title="2.1 文件名"></a>2.1 文件名</h3><p>所有源码文件的命名与顶级类保持一致（包括大小写），再加 <code>.java</code> 扩展名。</p>
-<h3 id="2-2-文件编码-UTF-8"><a href="#2-2-文件编码-UTF-8" class="headerlink" title="2.2 文件编码:UTF-8"></a>2.2 文件编码:UTF-8</h3><p>所有源文件使用 <strong>UTF-8</strong> 编码。</p>
-<h3 id="2-3-特殊字符"><a href="#2-3-特殊字符" class="headerlink" title="2.3 特殊字符"></a>2.3 特殊字符</h3><h4 id="2-3-1-空白字符"><a href="#2-3-1-空白字符" class="headerlink" title="2.3.1 空白字符"></a>2.3.1 空白字符</h4><p>Aside from the line terminator sequence, the <strong>ASCII horizontal space character (0x20)</strong> is the only whitespace character that appears anywhere in a source file. This implies that:</p>
-<ol>
-<li>All other whitespace characters in string and character literals are escaped.</li>
-<li>Tab characters are <strong>not</strong> used for indentation.</li>
-</ol>
-<h4 id="2-3-2-特殊转义字符"><a href="#2-3-2-特殊转义字符" class="headerlink" title="2.3.2 特殊转义字符"></a>2.3.2 特殊转义字符</h4><p>对于能用字符表示的特殊转义符（<code>\b</code>、<code>\t</code>、<code>\n</code>、<code>\f</code>、<code>\r</code>、<code>\&quot;</code>、<code>\&#39;</code>、<code>\\</code>），不要使用8进制转义（比如：<code>\012</code>）或Unicode转义（比如：<code>\u000a</code>）。</p>
-<h4 id="2-3-3-非ASCII字符"><a href="#2-3-3-非ASCII字符" class="headerlink" title="2.3.3 非ASCII字符"></a>2.3.3 非ASCII字符</h4><p>对于非ASCII字符，直接用Unicode字符（比如：<code>∞</code>）或用Unicode转义字符（比如：<code>\u221e</code>）都可以。具体采用哪种方式只取决于代码的可读性。</p>
-<p><strong>提示:</strong> 使用Unicode转义符或不常见的Unicode符号时，强烈建议添加注释予以说明。</p>
-<p><strong>示例:</strong></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">示例</th>
-<th style="text-align:left">结论</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">String unitAbbrev = “μs”;</td>
-<td style="text-align:left">最佳：非常清晰，甚至不需要注释说明。</td>
-</tr>
-<tr>
-<td style="text-align:left">String unitAbbrev = “\u03bcs”; // “μs”</td>
-<td style="text-align:left">也可以：但没必要这么做。</td>
-</tr>
-<tr>
-<td style="text-align:left">String unitAbbrev = “\u03bcs”; // Greek letter mu, “s”</td>
-<td style="text-align:left">可接受：但不容易理解。</td>
-</tr>
-<tr>
-<td style="text-align:left">String unitAbbrev = “\u03bcs”;</td>
-<td style="text-align:left">不可接受：作者以外的人完全不知道这是啥？</td>
-</tr>
-<tr>
-<td style="text-align:left">return ‘\ufeff’ + content; // byte order mark</td>
-<td style="text-align:left">正确：使用转义符表示不能显示的字符并添加了说明注释。</td>
-</tr>
-</tbody>
-</table>
-<p><strong>提示:</strong> 千万不要因为害怕别的程序不能识别非ASCII字符而牺牲代码的可读性。</p>
-<h2 id="3-源码文件结构"><a href="#3-源码文件结构" class="headerlink" title="3 源码文件结构"></a>3 源码文件结构</h2><p>源码文件按以下 <strong>顺序</strong> 排序：</p>
-<ol>
-<li>许可信息和版权信息（如果有的话）</li>
-<li><code>package</code> 语句</li>
-<li><code>import</code> 语句</li>
-<li>顶级类</li>
-</ol>
-<p>各个部分使用 <strong>单行空行</strong> 来分割。</p>
-<h3 id="3-1-如果存在，请添加License或copyright信息"><a href="#3-1-如果存在，请添加License或copyright信息" class="headerlink" title="3.1 如果存在，请添加License或copyright信息"></a>3.1 如果存在，请添加License或copyright信息</h3><p>如果这个文件拥有许可和版权信息，请在文件中添加。</p>
-<h3 id="3-2-package语句"><a href="#3-2-package语句" class="headerlink" title="3.2 package语句"></a>3.2 package语句</h3><p><code>package</code> 语句 <strong>不要换行</strong> 。<br>列宽的限制(<a href="#4-4-列宽-100">4.4 列宽:100</a>)不影响 <code>package</code> 语句。</p>
-<h3 id="3-3-import语句"><a href="#3-3-import语句" class="headerlink" title="3.3 import语句"></a>3.3 import语句</h3><h4 id="3-3-1-不要使用通配符import"><a href="#3-3-1-不要使用通配符import" class="headerlink" title="3.3.1 不要使用通配符import"></a>3.3.1 不要使用通配符import</h4><p>不管是静态导入还是声明，<strong>绝不使用通配符导入</strong>。</p>
-<h4 id="3-3-2-不要换行"><a href="#3-3-2-不要换行" class="headerlink" title="3.3.2 不要换行"></a>3.3.2 不要换行</h4><p><code>import</code> 语句 <strong>不要换行</strong> 。<br>列宽的限制(<a href="#4-4-列宽-100">4.4 列宽:100</a>)不影响 <code>import</code> 语句。</p>
-<h4 id="3-3-3-排序和空行"><a href="#3-3-3-排序和空行" class="headerlink" title="3.3.3 排序和空行"></a>3.3.3 排序和空行</h4><p>导入顺序如下：</p>
-<ol>
-<li>所有静态导入在一个块儿中。</li>
-<li>所有非静态导入在一个块儿中。</li>
-</ol>
-<p>如果既存在静态导入，又有非静态导入，则在两个块儿间用一个空行进行分割。</p>
-<p>在每个块儿中，按类名ASCII码序排序。（<strong>注意</strong> 这并不意味是按语句的ASCII码序排序，因为<code>.</code>的ASCII序在<code>;</code>的ASCII序前。）</p>
-<h4 id="3-3-4-不要静态导入"><a href="#3-3-4-不要静态导入" class="headerlink" title="3.3.4 不要静态导入"></a>3.3.4 不要静态导入</h4><p>不要使用静态导入来导入内部静态类。使用普通导入即可。</p>
-<h3 id="3-4-class声明"><a href="#3-4-class声明" class="headerlink" title="3.4 class声明"></a>3.4 class声明</h3><h4 id="3-4-1-完整的顶级类声明"><a href="#3-4-1-完整的顶级类声明" class="headerlink" title="3.4.1 完整的顶级类声明"></a>3.4.1 完整的顶级类声明</h4><p>每个顶级类都存唯一对应的一个源码文件。</p>
-<h4 id="3-4-2-类的内容的排序"><a href="#3-4-2-类的内容的排序" class="headerlink" title="3.4.2 类的内容的排序"></a>3.4.2 类的内容的排序</h4><p>类中方法和构造器的顺序对于别人理解你的代码有巨大帮助。但是，这个顺序并没有一定之规，而是根据不同的类有不同的顺序。</p>
-<p>重要的是作者能类中内容遵循的 <strong>某种逻辑顺序</strong> 一个合理解释。比如，把新添加的方法放在最后，虽然也能解释为按添加顺序排序，但这并不存在任何逻辑关系。</p>
-<h5 id="3-4-2-1-重载方法不要分离"><a href="#3-4-2-1-重载方法不要分离" class="headerlink" title="3.4.2.1 重载方法不要分离"></a>3.4.2.1 重载方法不要分离</h5><p>当一个类中包含多个构造器或多个同名方法时，把这些方法排列在一起（中间不穿插任何代码，甚至私有成员变量也不行）。</p>
-<h2 id="4-格式化"><a href="#4-格式化" class="headerlink" title="4 格式化"></a>4 格式化</h2><p><em>块儿状结构</em> 指类、方法或构造器的方法体。 注意,在<a href="#4-8-3-1-数组可以像块一样初始化">4.8.3.1 数组可以像块一样初始化</a>中，这些数组初始化块儿也被认为是块儿状结构。</p>
-<h3 id="4-1-括号"><a href="#4-1-括号" class="headerlink" title="4.1 括号"></a>4.1 括号</h3><h4 id="4-1-1-一律使用大括号"><a href="#4-1-1-一律使用大括号" class="headerlink" title="4.1.1 一律使用大括号"></a>4.1.1 一律使用大括号</h4><p><code>if</code>、<code>else</code>、<code>for</code>、<code>do</code>和<code>while</code>语句一律使用大括号，哪怕语句块儿只有一行或者为空。</p>
-<h4 id="4-1-2-非空代码块使用K-amp-R风格"><a href="#4-1-2-非空代码块使用K-amp-R风格" class="headerlink" title="4.1.2 非空代码块使用K&amp;R风格"></a>4.1.2 非空代码块使用K&amp;R风格</h4><p>括号非空代码块使用K&amp;R风格：</p>
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+            <h1 id="Why-Blog"><a href="#Why-Blog" class="headerlink" title="Why Blog"></a>Why Blog</h1><h2 id="对博客的理解"><a href="#对博客的理解" class="headerlink" title="对博客的理解"></a>对博客的理解</h2><p>喜欢写Blog的人，会经历三个阶段。</p>
+<blockquote>
+<p>第一阶段，刚接触Blog，觉得很新鲜，试着选择一个免费空间来写。</p>
+<p>第二阶段，发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。</p>
+<p>第三阶段，觉得独立博客的管理太麻烦，最好在保留控制权的前提下，让别人来管，自己只负责写文章。</p>
+</blockquote>
+<p>我们每个人的在网络上产生的数据越来越多，这些信息是我们在互联网上存在过的痕迹，值得我们认真对待。但是它们被分散分布在各个网站上。很多时候我们很难将它们聚合在一起，而且各个网站的信息排布方式也没有办法自由控制，所以我们需要一个可以由自己主宰的空间——博客。</p>
+<p>通过博客，我们可以记录自己的生活和成长的轨迹。它不像 Twitter 那样碎片化，也不像 Facebook 那样关系化，它是私人的空间。</p>
+<h2 id="关于叶落阁"><a href="#关于叶落阁" class="headerlink" title="关于叶落阁"></a>关于叶落阁</h2><p><strong>叶落阁</strong> 是阿杰（杨玉杰）的个人站。</p>
+<p>到目前为止已经写了<code class="article_number"></code>篇文章， 共<code class="site_word_count"></code>字。</p>
+<p>本站访问人数：<code class="site_uv"></code>人次 ， 访问量：<code class="site_pv"></code>次</p>
+<h2 id="博客平台"><a href="#博客平台" class="headerlink" title="博客平台"></a>博客平台</h2><p>这个博客通过 <a href="https://hexo.io/">Hexo</a> 生成，部署在 <a href="https://pages.github.com/">GitHub Pages</a>，主题 <a href="https://github.com/yelog/hexo-theme-3-hexo">3-hexo</a> 已经在github上开源</p>
+<p>主要功能：</p>
 <ul>
-<li>在<code>{</code>前不换行。</li>
-<li>在<code>{</code>后换行。</li>
-<li>在<code>}</code>前换行。</li>
-<li>在<code>}</code>后换行，当且仅当<code>}</code>后是控制符或结束符不换行。例如，<code>}</code>后是<code>else</code>或<code>;</code>。</li>
+<li>搜索支持文章标题、标签(#标签)、作者(@作者)</li>
+<li>pad/手机等移动端适配</li>
+<li>页面全局快捷键 <a href='http://yelog.org/2017/03/24/3-hexo-shortcuts/'>3-hexo快捷键说明</a></li>
 </ul>
-<p><strong>示例:</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> () -&gt; &#123;</span><br><span class="line">  <span class="keyword">while</span> (condition()) &#123;</span><br><span class="line">    method();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="keyword">new</span> MyClass() &#123;</span><br><span class="line">  <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (condition()) &#123;</span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">        something();</span><br><span class="line">      &#125; <span class="keyword">catch</span> (ProblemException e) &#123;</span><br><span class="line">        recover();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (otherCondition()) &#123;</span><br><span class="line">      somethingElse();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      lastThing();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>还有一些例外在<a href="#4-8-1-枚举类">4.8.1 枚举类</a>]中详尽描述。</p>
-<h4 id="4-1-3-空代码块可以很简洁"><a href="#4-1-3-空代码块可以很简洁" class="headerlink" title="4.1.3 空代码块可以很简洁"></a>4.1.3 空代码块可以很简洁</h4><p>空代码块指<code>{}</code>构成的块儿状结构，中间没有任何空格和空行。空代码块儿是允许的，但不允许在多块儿语句（<code>if</code>/<code>else</code>或<code>try</code>/<code>catch</code>/<code>finally</code>）中使用。</p>
-<p><strong>示例:</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这种写法没问题</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">doNothing</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这种写法也没问题</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">doNothingElse</span><span class="params">()</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这种写法不允许: 不允许在多块儿语句中使用空代码块儿。</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  doSomething();</span><br><span class="line">&#125; <span class="keyword">catch</span> (Exception e) &#123;&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="4-2-代码块儿缩进-2空格"><a href="#4-2-代码块儿缩进-2空格" class="headerlink" title="4.2 代码块儿缩进:+2空格"></a>4.2 代码块儿缩进:+2空格</h3><p>每当开始新代码块，需要缩进两个空格。当代码块儿结束后，恢复缩进。</p>
-<h3 id="4-3-每行一个语句"><a href="#4-3-每行一个语句" class="headerlink" title="4.3 每行一个语句"></a>4.3 每行一个语句</h3><p>每行只写一条语句。</p>
-<h3 id="4-4-列宽-100"><a href="#4-4-列宽-100" class="headerlink" title="4.4 列宽:100"></a>4.4 列宽:100</h3><p>除了下面罗列的几种情况，任何Java代码的列宽均设置为100个字符。</p>
-<p>几个例外：</p>
-<ol>
-<li>行宽超过列宽（比如：一个特别长的URL或一个特别长的JSNI方法引用）。</li>
-<li><code>package</code>和<code>import</code>语句（参考<a href="#3-2-package语句">3.2 package语句</a>和<a href="#3-3-import语句">3.3 import语句</a>）。</li>
-<li>注释中可能被复制粘贴到终端的命令行。</li>
-</ol>
-<h3 id="4-5-换行"><a href="#4-5-换行" class="headerlink" title="4.5 换行"></a>4.5 换行</h3><p>名词解释：当可能合法占用单行的代码被划分成多行时，这个活动被称为换行。</p>
-<p>尽管没有一个全面的，确定性的规则规定在各种情况下该如何换行，但通常有几种有效的方式来换行。</p>
-<p>注意：尽管换行的典型原因是为了避免溢出列限制，即使实际符合列限制的代码也可能由作者自行决定。</p>
-<p>提示：大部分情况下，可以通过提取方法或局部变量来解决问题，而不是换行。</p>
-<h4 id="4-5-1-在哪里换行？"><a href="#4-5-1-在哪里换行？" class="headerlink" title="4.5.1 在哪里换行？"></a>4.5.1 在哪里换行？</h4><p><strong>TODO</strong><br>The prime directive of line-wrapping is: prefer to break at a <strong>higher syntactic level</strong>. Also:</p>
-<p><strong>TODO</strong></p>
-<ol>
-<li>When a line is broken at a non-assignment operator the break comes before the symbol. (Note that this is not the same practice used in Google style for other languages, such as C++ and JavaScript.)<ul>
-<li>This also applies to the following “operator-like” symbols:<ul>
-<li>the dot separator (.)</li>
-<li>the two colons of a method reference (::)</li>
-<li>an ampersand in a type bound (<t extends="" foo="" &="" bar="">)</t></li>
-<li>a pipe in a catch block (catch (FooException | BarException e)).</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>When a line is broken at an assignment operator the break typically comes after the symbol, but either way is acceptable.<ul>
-<li>This also applies to the “assignment-operator-like” colon in an enhanced for (“foreach”) statement.</li>
-</ul>
-</li>
-<li>A method or constructor name stays attached to the open parenthesis (() that follows it.</li>
-<li>A comma (,) stays attached to the token that precedes it.</li>
-<li>A line is never broken adjacent to the arrow in a lambda, except that a break may come immediately after the arrow if the body of the lambda consists of a single unbraced expression. Examples:<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">MyLambda&lt;String, Long, Object&gt; lambda =</span><br><span class="line">    (String label, Long value, Object obj) -&gt; &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">Predicate&lt;String&gt; predicate = str -&gt;</span><br><span class="line">    longExpressionInvolving(str);</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><strong>注意</strong> 换行最主要的目的是保持代码的清晰，而不是占用最少的行。</p>
-<h4 id="4-5-2-缩进连续行-4空格"><a href="#4-5-2-缩进连续行-4空格" class="headerlink" title="4.5.2 缩进连续行:+4空格"></a>4.5.2 缩进连续行:+4空格</h4><p>当折行时，新的行要比原始行缩进4个空格。</p>
-<p>当有多个连续行时，保持后续行相同的缩进。</p>
-<h3 id="4-6-空白符"><a href="#4-6-空白符" class="headerlink" title="4.6 空白符"></a>4.6 空白符</h3><h4 id="4-6-1-垂直空白"><a href="#4-6-1-垂直空白" class="headerlink" title="4.6.1 垂直空白"></a>4.6.1 垂直空白</h4><p>空行会在以下几种情况下使用：</p>
-<ol>
-<li>类中不同类型的成员和构造器之间: 属性、构造器、方法、内部类、静态初始化块和实例初始化.<ul>
-<li><strong>例外</strong> 属性之间的空行可以省去，一般在属性之间的空行用来分组。</li>
-<li><strong>例外</strong> 枚举常量的空行使用在<a href="#4-8-1-枚举类">4.8.1 枚举类</a>中讨论。</li>
-</ul>
-</li>
-<li>语句之间用以标识逻辑上的分割。</li>
-<li>在第一个成员或初始化块前或最后一个成员或初始化块后也可以增加空行。</li>
-<li>在其他章节提到的要求（比如<a href="#3-源码文件结构">3 源码文件结构</a>和<a href="#3-3-import语句">3.3 import语句</a>）。</li>
-</ol>
-<p>不推荐使用连续多行的空行（但也不禁止）。</p>
-<h4 id="4-6-2-水平空白"><a href="#4-6-2-水平空白" class="headerlink" title="4.6.2 水平空白"></a>4.6.2 水平空白</h4><p><strong>TODO</strong><br>Beyond where required by the language or other style rules, and apart from literals, comments and Javadoc, a single ASCII space also appears in the following places only.</p>
-<p><strong>TODO</strong></p>
-<ol>
-<li>Separating any reserved word, such as else or catch, from a closing curly brace (}) that precedes it on that line</li>
-<li>Separating any reserved word, such as if, for or catch, from an open parenthesis (() that follows it on that line</li>
-<li>Before any open curly brace (<code>{</code>), with two exceptions:<ul>
-<li><code>@SomeAnnotation({a, b})</code> (no space is used)</li>
-<li><code>String[][] x = foo;</code> (no space is required between <code>{</code>, by item 8 below)</li>
-</ul>
-</li>
-<li><p>On both sides of any binary or ternary operator. This also applies to the following “operator-like” symbols:</p>
-<ul>
-<li>the ampersand in a conjunctive type bound: <code>&lt;T extends Foo &amp; Bar&gt;</code></li>
-<li>the pipe for a catch block that handles multiple exceptions: <code>catch (FooException | BarException e)</code></li>
-<li>the colon (:) in an enhanced for (“foreach”) statement</li>
-<li>the arrow in a lambda expression: <code>(String str) -&gt; str.length()</code></li>
-</ul>
-<p>but not</p>
-<ul>
-<li>the two colons (<code>::</code>) of a method reference, which is written like <code>Object::toString</code></li>
-<li>the dot separator (.), which is written like object.toString()</li>
-</ul>
-</li>
-<li>After <code>,:;</code> or the closing parenthesis ()) of a cast</li>
-<li>On both sides of the double slash (<code>//</code>) that begins an end-of-line comment. Here, multiple spaces are allowed, but not required.</li>
-<li>Between the type and variable of a declaration: <code>List&lt;String&gt; list</code></li>
-<li>Optional just inside both braces of an array initializer<ul>
-<li><code>new int[] {5, 6}</code> and <code>new int[] { 5, 6 }</code> are both valid</li>
-</ul>
-</li>
-</ol>
-<p>This rule is never interpreted as requiring or forbidding additional space at the start or end of a line; it addresses only interior space.</p>
-<h4 id="4-6-3-不要求水平对齐"><a href="#4-6-3-不要求水平对齐" class="headerlink" title="4.6.3 不要求水平对齐"></a>4.6.3 不要求水平对齐</h4><p><strong>TODO</strong><br>This practice is permitted, but is never required by Google Style. It is not even required to maintain horizontal alignment in places where it was already used.</p>
-<p><strong>TODO</strong><br>Here is an example without alignment, then using alignment:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> x; <span class="comment">// this is fine</span></span><br><span class="line"><span class="keyword">private</span> Color color; <span class="comment">// this too</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span>   x;      <span class="comment">// permitted, but future edits</span></span><br><span class="line"><span class="keyword">private</span> Color color;  <span class="comment">// may leave it unaligned</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>TODO</strong><br>Tip: Alignment can aid readability, but it creates problems for future maintenance. Consider a future change that needs to touch just one line. This change may leave the formerly-pleasing formatting mangled, and that is allowed. More often it prompts the coder (perhaps you) to adjust whitespace on nearby lines as well, possibly triggering a cascading series of reformattings. That one-line change now has a “blast radius.” This can at worst result in pointless busywork, but at best it still corrupts version history information, slows down reviewers and exacerbates merge conflicts.</p>
-<h3 id="4-7-分组括号"><a href="#4-7-分组括号" class="headerlink" title="4.7 分组括号"></a>4.7 分组括号</h3><p><strong>TODO</strong><br>Optional grouping parentheses are omitted only when author and reviewer agree that there is no reasonable chance the code will be misinterpreted without them, nor would they have made the code easier to read. It is not reasonable to assume that every reader has the entire Java operator precedence table memorized.</p>
-<h3 id="4-8-特殊结构"><a href="#4-8-特殊结构" class="headerlink" title="4.8 特殊结构"></a>4.8 特殊结构</h3><h4 id="4-8-1-枚举类"><a href="#4-8-1-枚举类" class="headerlink" title="4.8.1 枚举类"></a>4.8.1 枚举类</h4><p>在每个逗号后可以直接跟枚举，也可以添加换行。例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">enum</span> Answer &#123;</span><br><span class="line">  YES &#123;</span><br><span class="line">    <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">"yes"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  NO,</span><br><span class="line">  MAYBE</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>如果枚举里不包含任何方法和注释时，可以使用<a href="#4-8-3-1-数组可以像块一样初始化">4.8.3.1 数组可以像块一样初始化</a>]的风格。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">enum</span> Suit &#123; CLUBS, HEARTS, SPADES, DIAMONDS &#125;</span><br></pre></td></tr></table></figure></p>
-<p>既然枚举类也是类，所有其他格式化风格遵循类的风格。</p>
-<h4 id="4-8-2-变量声明"><a href="#4-8-2-变量声明" class="headerlink" title="4.8.2 变量声明"></a>4.8.2 变量声明</h4><h5 id="4-8-2-1-一次声明一个变量"><a href="#4-8-2-1-一次声明一个变量" class="headerlink" title="4.8.2.1 一次声明一个变量"></a>4.8.2.1 一次声明一个变量</h5><p>每次声明只一个变量。比如，<code>int a, b;</code>就不允许。</p>
-<h5 id="4-8-2-2-需要时才声明"><a href="#4-8-2-2-需要时才声明" class="headerlink" title="4.8.2.2 需要时才声明"></a>4.8.2.2 需要时才声明</h5><p>局部变量不要在代码块的开头定义，而是在马上要用到的地方声明。</p>
-<h4 id="4-8-3-数组"><a href="#4-8-3-数组" class="headerlink" title="4.8.3 数组"></a>4.8.3 数组</h4><h5 id="4-8-3-1-数组可以像块一样初始化"><a href="#4-8-3-1-数组可以像块一样初始化" class="headerlink" title="4.8.3.1 数组可以像块一样初始化"></a>4.8.3.1 数组可以像块一样初始化</h5><p>任何数组的初始化都可以像块儿结构一样。比如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="keyword">int</span>[] &#123;</span><br><span class="line">  <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">new</span> <span class="keyword">int</span>[] &#123;</span><br><span class="line">  <span class="number">0</span>,</span><br><span class="line">  <span class="number">1</span>,</span><br><span class="line">  <span class="number">2</span>,</span><br><span class="line">  <span class="number">3</span>,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">new</span> <span class="keyword">int</span>[] &#123;</span><br><span class="line">  <span class="number">0</span>, <span class="number">1</span>,</span><br><span class="line">  <span class="number">2</span>, <span class="number">3</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">new</span> <span class="keyword">int</span>[]</span><br><span class="line">    &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br></pre></td></tr></table></figure></p>
-<h5 id="4-8-3-2-不使用C风格的数组声明方式"><a href="#4-8-3-2-不使用C风格的数组声明方式" class="headerlink" title="4.8.3.2 不使用C风格的数组声明方式"></a>4.8.3.2 不使用C风格的数组声明方式</h5><p>方括号跟在类型后，而不是参数。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String[] args; <span class="comment">// 这是正确的</span></span><br><span class="line">String args[]; <span class="comment">// 这是错误的</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="4-8-4-switch语句"><a href="#4-8-4-switch语句" class="headerlink" title="4.8.4 switch语句"></a>4.8.4 switch语句</h4><h5 id="4-8-4-1-缩进"><a href="#4-8-4-1-缩进" class="headerlink" title="4.8.4.1 缩进"></a>4.8.4.1 缩进</h5><p>任何代码块儿的开始，都需要缩进两个空格。</p>
-<p>在每个<code>case</code>或<code>default</code>语句后都需换行，其中的语句也像语句块儿一样要缩进两个空格。</p>
-<h5 id="4-8-4-2-进入下一条件注释"><a href="#4-8-4-2-进入下一条件注释" class="headerlink" title="4.8.4.2 进入下一条件注释"></a>4.8.4.2 进入下一条件注释</h5><p>在<code>switch</code>语句块中，每种<code>case</code>都应有明确的中断（<code>break</code>、<code>continue</code>、<code>return</code>或<code>throw</code>）或用注释说明将会进入下一条件。比如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> (input) &#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">  <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">    prepareOneOrTwo();</span><br><span class="line">    <span class="comment">// 继续进入下一条件</span></span><br><span class="line">  <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">    handleOneTwoOrThree();</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">default</span>:</span><br><span class="line">    handleLargeNumber(input);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>注意：像<code>case 1:</code>后面就没有注释。注释只需要添加在语句之后。</p>
-<h5 id="4-8-4-3-必须提供default条件"><a href="#4-8-4-3-必须提供default条件" class="headerlink" title="4.8.4.3 必须提供default条件"></a>4.8.4.3 必须提供default条件</h5><p>每个<code>switch</code>语句都应包含<code>default</code>条件，哪怕<code>default</code>中不包含任何代码。</p>
-<p>例外：枚举类的<code>switch</code>语句的<code>default</code>条件就不是必须的。</p>
-<h4 id="4-8-5-注解"><a href="#4-8-5-注解" class="headerlink" title="4.8.5 注解"></a>4.8.5 注解</h4><p>在类、方法、构造器上的注解紧跟在文档块儿之后，并且每个注解占据一行。比如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="meta">@Nullable</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getNameIfPresent</span><span class="params">()</span> </span>&#123; ... &#125;</span><br></pre></td></tr></table></figure></p>
-<p>例外：当只有一个注解时，可以和声明写在同一行，比如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123; ... &#125;</span><br></pre></td></tr></table></figure></p>
-<p>在成员上的注解也紧跟在文档块儿之后，但当有多个注解时，可以写在同一行。比如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Partial</span> <span class="meta">@Mock</span> DataLoader loader;</span><br></pre></td></tr></table></figure></p>
-<p>关于在参数和临时变量上的注解则没有特别的规则。</p>
-<h4 id="4-8-6-注释"><a href="#4-8-6-注释" class="headerlink" title="4.8.6 注释"></a>4.8.6 注释</h4><p>本章节只讨论注释。Javadoc在<a href="#7-Javadoc">7 Javadoc</a>中讨论。</p>
-<p><strong>TODO</strong><br>Any line break may be preceded by arbitrary whitespace followed by an implementation comment. Such a comment renders the line non-blank.</p>
-<h5 id="4-8-6-1-块注释风格"><a href="#4-8-6-1-块注释风格" class="headerlink" title="4.8.6.1 块注释风格"></a>4.8.6.1 块注释风格</h5><p>块儿注释的缩进与上下文的代码保持同级。可以使用<code>/* ... */</code>或<code>// ...</code>风格。对于多行的<code>/* ... */</code>风格注释，每行用<code>*</code>开头并与上一行的<code>*</code>对齐。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 这样</span></span><br><span class="line"><span class="comment"> * 可以。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"> <span class="comment">// 也可以</span></span><br><span class="line"> <span class="comment">// 这样。</span></span><br><span class="line"></span><br><span class="line"> <span class="comment">/* 甚至你可以</span></span><br><span class="line"><span class="comment">  * 这样。 */</span></span><br></pre></td></tr></table></figure></p>
-<p> <strong>TODO</strong><br>Comments are not enclosed in boxes drawn with asterisks or other characters.</p>
-<h4 id="4-8-7-修饰符"><a href="#4-8-7-修饰符" class="headerlink" title="4.8.7 修饰符"></a>4.8.7 修饰符</h4><p>当有类和方法的修饰符时，使用Java语言推荐的顺序：</p>
-<p><code>public protected private abstract default static final transient volatile synchronized native strictfp</code></p>
-<h4 id="4-8-8-易混淆的数字和字母"><a href="#4-8-8-易混淆的数字和字母" class="headerlink" title="4.8.8 易混淆的数字和字母"></a>4.8.8 易混淆的数字和字母</h4><p><code>long</code>类型数值使用大写<code>L</code>作为结束符而不是小写<code>l</code>（避免小写字母<code>l</code>和数字<code>1</code>混淆）。比如，<code>3000000000L</code>就比<code>3000000000l</code>要清楚的多。</p>
-<h2 id="5-命名"><a href="#5-命名" class="headerlink" title="5 命名"></a>5 命名</h2><h3 id="5-1-通用规则"><a href="#5-1-通用规则" class="headerlink" title="5.1 通用规则"></a>5.1 通用规则</h3><p>命名只包含字母、数字和<code>_</code>。</p>
-<h3 id="5-2-不同标识符的规则"><a href="#5-2-不同标识符的规则" class="headerlink" title="5.2 不同标识符的规则"></a>5.2 不同标识符的规则</h3><h4 id="5-2-1-包命名"><a href="#5-2-1-包命名" class="headerlink" title="5.2.1 包命名"></a>5.2.1 包命名</h4><p>包名称全部使用小写并且不包含<code>_</code>。例如，<code>com.example.deepspace</code>是推荐的命名，而不是<code>com.example.deepSpace</code>或<code>com.example.deep_space</code>。</p>
-<h4 id="5-2-2-类命名"><a href="#5-2-2-类命名" class="headerlink" title="5.2.2 类命名"></a>5.2.2 类命名</h4><p>类命名采用首字母大写的驼峰命名规范。</p>
-<p>类名称一般用名词或名词短语命名。例如<code>Character</code>或<code>ImmutableList</code>。接口也用名词或名词短语命名（比如：<code>List</code>），但有时也用形容词或形容词短语（比如：<code>Readable</code>）。</p>
-<p>注解类没有特别的命名规范。</p>
-<p>测试类使用被测试的类加<code>Test</code>后缀来命名，比如：<code>HashTest</code>或<code>HashIntegrationTest</code>。</p>
-<h4 id="5-2-3-方法命名"><a href="#5-2-3-方法命名" class="headerlink" title="5.2.3 方法命名"></a>5.2.3 方法命名</h4><p>方法使用首字母小写的驼峰命名规范。</p>
-<p>方法一般用动词或动词短语来命名。比如：<code>sendMessage</code>或<code>stop</code>。</p>
-<p><code>_</code>一般在测试方法中使用，最典型的用法是<code>test&lt;MethodUnderTest&gt;_&lt;state&gt;</code>，比如：<code>testPop_emptyStack</code>。</p>
-<h4 id="5-2-4-常量命名"><a href="#5-2-4-常量命名" class="headerlink" title="5.2.4 常量命名"></a>5.2.4 常量命名</h4><p>常量命名使用全大写并用<code>_</code>连接单词。但什么才是常量？</p>
-<p>常量是<code>static final</code>的成员，也就是不可改变的成员。包括基本类型、<code>String</code>、不可变类型、使用不可变类型为泛型的不可变容器。例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这些是常量</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> NUMBER = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> ImmutableList&lt;String&gt; NAMES = ImmutableList.of(<span class="string">"Ed"</span>, <span class="string">"Ann"</span>);</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> ImmutableMap&lt;String, Integer&gt; AGES = ImmutableMap.of(<span class="string">"Ed"</span>, <span class="number">35</span>, <span class="string">"Ann"</span>, <span class="number">32</span>);</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> Joiner COMMA_JOINER = Joiner.on(<span class="string">','</span>); <span class="comment">// because Joiner is immutable</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> SomeMutableType[] EMPTY_ARRAY = &#123;&#125;;</span><br><span class="line"><span class="keyword">enum</span> SomeEnum &#123; ENUM_CONSTANT &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这些不时常量</span></span><br><span class="line"><span class="keyword">static</span> String nonFinal = <span class="string">"non-final"</span>;</span><br><span class="line"><span class="keyword">final</span> String nonStatic = <span class="string">"non-static"</span>;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> Set&lt;String&gt; mutableCollection = <span class="keyword">new</span> HashSet&lt;String&gt;();</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> ImmutableSet&lt;SomeMutableType&gt; mutableElements = ImmutableSet.of(mutable);</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> ImmutableMap&lt;String, SomeMutableType&gt; mutableValues =</span><br><span class="line">    ImmutableMap.of(<span class="string">"Ed"</span>, mutableInstance, <span class="string">"Ann"</span>, mutableInstance2);</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> Logger logger = Logger.getLogger(MyClass.getName());</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> String[] nonEmptyArray = &#123;<span class="string">"these"</span>, <span class="string">"can"</span>, <span class="string">"change"</span>&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>命名全部使用名词或名词短语。</p>
-<h4 id="5-2-5-非常量成员命名"><a href="#5-2-5-非常量成员命名" class="headerlink" title="5.2.5 非常量成员命名"></a>5.2.5 非常量成员命名</h4><p>非静态变量（不管是否是<code>static</code>）全部采用首字母小写的驼峰命名规范。</p>
-<p>命名全部使用名词或名词短语。比如<code>computedValues</code>或<code>index</code>。</p>
-<h4 id="5-2-6-参数命名"><a href="#5-2-6-参数命名" class="headerlink" title="5.2.6 参数命名"></a>5.2.6 参数命名</h4><p>参数全部采用首字母小写的驼峰命名规范。</p>
-<p>在<code>public</code>方法中避免使用单字符的命名。</p>
-<h4 id="5-2-7-局部变量命名"><a href="#5-2-7-局部变量命名" class="headerlink" title="5.2.7 局部变量命名"></a>5.2.7 局部变量命名</h4><p>局部变量全部采用首字母小写的驼峰命名规范。</p>
-<p>哪怕局部变量是<code>final</code>和<code>immutable</code>也不使用常量风格命名。</p>
-<h4 id="5-2-8-类型变量命名"><a href="#5-2-8-类型变量命名" class="headerlink" title="5.2.8 类型变量命名"></a>5.2.8 类型变量命名</h4><p>类型变量的命名遵循以下两种风格：</p>
-<ul>
-<li>单个大写字母或单个大写字母后加数字。（比如：E、T、X、T2）</li>
-<li>在类名后添加大写字母T。（比如：RequestT、FooBarT）</li>
-</ul>
-<h3 id="5-3-驼峰命名"><a href="#5-3-驼峰命名" class="headerlink" title="5.3 驼峰命名"></a>5.3 驼峰命名</h3><p><strong>TODO</strong><br>Sometimes there is more than one reasonable way to convert an English phrase into camel case, such as when acronyms or unusual constructs like “IPv6” or “iOS” are present. To improve predictability, Google Style specifies the following (nearly) deterministic scheme.</p>
-<p><strong>TODO</strong><br>Beginning with the prose form of the name:</p>
-<p><strong>TODO</strong><br>Convert the phrase to plain ASCII and remove any apostrophes. For example, “Müller’s algorithm” might become “Muellers algorithm”.<br>Divide this result into words, splitting on spaces and any remaining punctuation (typically hyphens).<br>Recommended: if any word already has a conventional camel-case appearance in common usage, split this into its constituent parts (e.g., “AdWords” becomes “ad words”). Note that a word such as “iOS” is not really in camel case per se; it defies any convention, so this recommendation does not apply.<br>Now lowercase everything (including acronyms), then uppercase only the first character of:<br>… each word, to yield upper camel case, or<br>… each word except the first, to yield lower camel case<br>Finally, join all the words into a single identifier.<br>Note that the casing of the original words is almost entirely disregarded. Examples:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Prose form</th>
-<th style="text-align:left">Correct</th>
-<th style="text-align:left">Incorrect</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">“XML HTTP request”</td>
-<td style="text-align:left">XmlHttpRequest</td>
-<td style="text-align:left">XMLHTTPRequest</td>
-</tr>
-<tr>
-<td style="text-align:left">“new customer ID”</td>
-<td style="text-align:left">newCustomerId</td>
-<td style="text-align:left">newCustomerID</td>
-</tr>
-<tr>
-<td style="text-align:left">“inner stopwatch”</td>
-<td style="text-align:left">innerStopwatch</td>
-<td style="text-align:left">innerStopWatch</td>
-</tr>
-<tr>
-<td style="text-align:left">“supports IPv6 on iOS?”</td>
-<td style="text-align:left">supportsIpv6OnIos</td>
-<td style="text-align:left">supportsIPv6OnIOS</td>
-</tr>
-<tr>
-<td style="text-align:left">“YouTube importer”</td>
-<td style="text-align:left">YouTubeImporter<br>YoutubeImporter*</td>
-</tr>
-</tbody>
-</table>
-<p><strong>TODO</strong><br><code>*</code>Acceptable, but not recommended.</p>
-<p><strong>TODO</strong><br>Note: Some words are ambiguously hyphenated in the English language: for example “nonempty” and “non-empty” are both correct, so the method names checkNonempty and checkNonEmpty are likewise both correct.</p>
-<h2 id="6-编程规范"><a href="#6-编程规范" class="headerlink" title="6 编程规范"></a>6 编程规范</h2><h3 id="6-1-必须使用-Override"><a href="#6-1-必须使用-Override" class="headerlink" title="6.1 必须使用 @Override"></a>6.1 必须使用 @Override</h3><p>当方法可以被标记<code>@Override</code>时，必须标记，包括重写父类方法、实现接口方法和在接口中重新指定父接口的方法。</p>
-<p><strong>例外：</strong> 当父类方法或接口方法被标记为<code>@Deprecated</code>时，可以不标记<code>@Override</code>。</p>
-<h3 id="6-2-不能忽略已捕获的异常"><a href="#6-2-不能忽略已捕获的异常" class="headerlink" title="6.2 不能忽略已捕获的异常"></a>6.2 不能忽略已捕获的异常</h3><p>除了下面描述的情况，在<code>catch</code>块儿中不做处理都是错误的。（最典型的处理是用日志记录；或当<code>catch</code>被认为 <em>不可能</em> 执行到时，重新抛出<code>AssertionError</code>）</p>
-<p>当真的不需要在<code>catch</code>块儿中做任何处理时，请通过注释来说明原因。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="keyword">int</span> i = Integer.parseInt(response);</span><br><span class="line">  <span class="keyword">return</span> handleNumericResponse(i);</span><br><span class="line">&#125; <span class="keyword">catch</span> (NumberFormatException ok) &#123;</span><br><span class="line">  <span class="comment">// 这不是一个数字; 这是正常情况, 继续进行即可。</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> handleTextResponse(response);</span><br></pre></td></tr></table></figure></p>
-<h3 id="6-3-使用类来访问静态成员"><a href="#6-3-使用类来访问静态成员" class="headerlink" title="6.3 使用类来访问静态成员"></a>6.3 使用类来访问静态成员</h3><p>如果需要引用静态类成员，请使用类名，而不是该类的对象引用或该类型的表达式。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Foo aFoo = ...;</span><br><span class="line">Foo.aStaticMethod(); <span class="comment">// 推荐方式</span></span><br><span class="line">aFoo.aStaticMethod(); <span class="comment">// 不推荐</span></span><br><span class="line">somethingThatYieldsAFoo().aStaticMethod(); <span class="comment">// 绝不推荐</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="6-4-禁止使用-Finalizers"><a href="#6-4-禁止使用-Finalizers" class="headerlink" title="6.4 禁止使用 Finalizers"></a>6.4 禁止使用 Finalizers</h3><p>只有在极其特殊的情况下才需要重写<code>Object.finalize()</code>方法。</p>
-<p>提示：千万别这么做。如果你真要这么做，请先仔细地阅读《Effective Java》第七章<code>Avoid Finalizers</code>,然后放弃该做法。</p>
-<h2 id="7-Javadoc"><a href="#7-Javadoc" class="headerlink" title="7 Javadoc"></a>7 Javadoc</h2><h3 id="7-1-格式化"><a href="#7-1-格式化" class="headerlink" title="7.1 格式化"></a>7.1 格式化</h3><h4 id="7-1-1-通用格式"><a href="#7-1-1-通用格式" class="headerlink" title="7.1.1 通用格式"></a>7.1.1 通用格式</h4><p>Javadoc的基本格式如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Multiple lines of Javadoc text are written here,</span></span><br><span class="line"><span class="comment"> * wrapped normally...</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">method</span><span class="params">(String p1)</span> </span>&#123; ... &#125;</span><br></pre></td></tr></table></figure></p>
-<p>或者像下面这种单行的格式:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** An especially short bit of Javadoc. */</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="7-1-2-段落"><a href="#7-1-2-段落" class="headerlink" title="7.1.2 段落"></a>7.1.2 段落</h4><p><strong>TODO</strong><br>One blank line—that is, a line containing only the aligned leading asterisk (<code>*</code>)—appears between paragraphs, and before the group of block tags if present. Each paragraph but the first has </p><p> immediately before the first word, with no space after.</p>
-<h4 id="7-1-3-标签块"><a href="#7-1-3-标签块" class="headerlink" title="7.1.3 标签块"></a>7.1.3 标签块</h4><p><strong>TODO</strong><br>Any of the standard “block tags” that are used appear in the order @param, @return, @throws, @deprecated, and these four types never appear with an empty description. When a block tag doesn’t fit on a single line, continuation lines are indented four (or more) spaces from the position of the @.</p>
-<h3 id="7-2-摘要"><a href="#7-2-摘要" class="headerlink" title="7.2 摘要"></a>7.2 摘要</h3><p><strong>TODO</strong><br>Each Javadoc block begins with a brief summary fragment. This fragment is very important: it is the only part of the text that appears in certain contexts such as class and method indexes.</p>
-<p><strong>TODO</strong><br>This is a fragment—a noun phrase or verb phrase, not a complete sentence. It does not begin with A {@code Foo} is a…, or This method returns…, nor does it form a complete imperative sentence like Save the record.. However, the fragment is capitalized and punctuated as if it were a complete sentence.</p>
-<p><strong>TODO</strong><br>Tip: A common mistake is to write simple Javadoc in the form <code>/** @return the customer ID */</code>. This is incorrect, and should be changed to <code>/** Returns the customer ID. */</code>.</p>
-<h3 id="7-3-在什么地方使用-Javadoc"><a href="#7-3-在什么地方使用-Javadoc" class="headerlink" title="7.3 在什么地方使用 Javadoc"></a>7.3 在什么地方使用 Javadoc</h3><p><strong>TODO</strong><br>At the minimum, Javadoc is present for every public class, and every public or protected member of such a class, with a few exceptions noted below.</p>
-<p><strong>TODO</strong><br>Additional Javadoc content may also be present, as explained in Section 7.3.4, Non-required Javadoc.</p>
-<h4 id="7-3-1-不包括不言自明的方法"><a href="#7-3-1-不包括不言自明的方法" class="headerlink" title="7.3.1 不包括不言自明的方法"></a>7.3.1 不包括不言自明的方法</h4><p><strong>TODO</strong><br>Javadoc is optional for “simple, obvious” methods like getFoo, in cases where there really and truly is nothing else worthwhile to say but “Returns the foo”.</p>
-<p><strong>TODO</strong><br>Important: it is not appropriate to cite this exception to justify omitting relevant information that a typical reader might need to know. For example, for a method named getCanonicalName, don’t omit its documentation (with the rationale that it would say only <code>/** Returns the canonical name. */</code>) if a typical reader may have no idea what the term “canonical name” means!</p>
-<h4 id="7-3-2-不包括重写方法"><a href="#7-3-2-不包括重写方法" class="headerlink" title="7.3.2 不包括重写方法"></a>7.3.2 不包括重写方法</h4><p><strong>TODO</strong><br>Javadoc is not always present on a method that overrides a supertype method.</p>
-<h4 id="7-3-3-不需要的-Javadoc"><a href="#7-3-3-不需要的-Javadoc" class="headerlink" title="7.3.3 不需要的 Javadoc"></a>7.3.3 不需要的 Javadoc</h4><p><strong>TODO</strong><br>Other classes and members have Javadoc as needed or desired.</p>
-<p><strong>TODO</strong><br>Whenever an implementation comment would be used to define the overall purpose or behavior of a class or member, that comment is written as Javadoc instead (using <code>/**</code>).</p>
-<p><strong>TODO</strong><br>Non-required Javadoc is not strictly required to follow the formatting rules of Sections 7.1.2, 7.1.3, and 7.2, though it is of course recommended.</p>
 
-      
+        </article>
+        
+        <p>
+            <a  class="dashang" onclick="dashangToggle()">赏</a>
+        </p>
+        
+        
     </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/代码风格/">代码风格</a>
-    </span>
-    
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 Yelog</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
     </div>
-
-    
-    <div class="article-meta pull-right">
-      <span>
-        <i class="icon-comments"></i>
-        <span>
-          <a href="/2017/03/23/Google-Java-代码风格指南/#comment">评论</a>
-        </span>
-      </span>
-    </div>
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2017/03/08/我在IDEA下常用的plugins/"><span>我在IDEA下常用的plugins</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2017/03/08/我在IDEA下常用的plugins/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-03-08T00:16:33.000Z">
-          2017-03-08
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <h2 id="findbugs"><a href="#findbugs" class="headerlink" title="findbugs"></a>findbugs</h2><p>通过字节码分析，找到程序存在的隐患<br>主要包括</p>
-<ul>
-<li>代码规范（类名、变量名、常量名）</li>
-<li>NPE的处理逻辑</li>
-<li>代码性能优化建议</li>
-<li>等等</li>
-</ul>
-<h2 id="gitflow"><a href="#gitflow" class="headerlink" title="gitflow"></a>gitflow</h2><p>整合的gitflow图形化插件<br>但不支持 support分支和bugfix分支</p>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/tools/">tools</a><a href="/tags/idea/">idea</a>
-    </span>
-    
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
 
     </div>
-
-    
-    <div class="article-meta pull-right">
-      <span>
-        <i class="icon-comments"></i>
-        <span>
-          <a href="/2017/03/08/我在IDEA下常用的plugins/#comment">评论</a>
-        </span>
-      </span>
-    </div>
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2017/03/08/用hexo和github搭建自己的静态博客/"><span>用hexo和github搭建自己的静态博客</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2017/03/08/用hexo和github搭建自己的静态博客/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-03-08T00:15:08.000Z">
-          2017-03-08
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="创建github仓库"><a href="#创建github仓库" class="headerlink" title="创建github仓库"></a>创建github仓库</h2><p>首先，你要有一个github帐号，什么？你还没有github帐号？那你已经错过了很多非常棒的开源软件了~！<a href="http://github.com" target="_blank" rel="noopener">快去注册吧</a></p>
-<p>然后，你需要创建一个仓库名为 {你的username}.github.io 的仓库</p>
-<h2 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h2><p>没有git？<a href="http://git-scm.org" target="_blank" rel="noopener">快去下载吧</a></p>
-<h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><p>这里就不搬运了，去官网看<a href="https://hexo.io" target="_blank" rel="noopener">教程</a>吧。</p>
-<h1 id="日常使用"><a href="#日常使用" class="headerlink" title="日常使用"></a>日常使用</h1><ul>
-<li>创建新博文<code>hexo new post &lt;title&gt;</code></li>
-<li>生成静态文件<code>hexo g</code></li>
-<li>本地模拟<code>hexo s</code></li>
-<li>部署到远端<code>hexo d</code></li>
-</ul>
-<h1 id="撰写博文的一些小技巧"><a href="#撰写博文的一些小技巧" class="headerlink" title="撰写博文的一些小技巧"></a>撰写博文的一些小技巧</h1><h2 id="tag的使用"><a href="#tag的使用" class="headerlink" title="tag的使用"></a>tag的使用</h2><p>支持多个tag，语法：<code>tags: [git,hexo]</code></p>
-<h2 id="markdown常用语法"><a href="#markdown常用语法" class="headerlink" title="markdown常用语法"></a>markdown常用语法</h2><h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">| Header One     | Header Two     |</span><br><span class="line">| :------------- | :------------- |</span><br><span class="line">| Item One       | Item Two       |</span><br></pre></td></tr></table></figure>
-<h3 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="emphasis">*内容*</span></span><br></pre></td></tr></table></figure>
-<h3 id="粗体"><a href="#粗体" class="headerlink" title="粗体"></a>粗体</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="strong">**内容**</span></span><br></pre></td></tr></table></figure>
-<h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 一级标题</span></span><br><span class="line"><span class="section">## 二级标题</span></span><br><span class="line"><span class="section">### 三级标题</span></span><br><span class="line"><span class="section">#### 四级标题</span></span><br></pre></td></tr></table></figure>
-<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">文本</span>](<span class="link">链接</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="其他特性可以用html标签"><a href="#其他特性可以用html标签" class="headerlink" title="其他特性可以用html标签"></a>其他特性可以用html标签</h3>
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/git/">git</a><a href="/tags/hexo/">hexo</a>
-    </span>
-    
+</div>
+<a class="" id="rocket" ></a>
 
     </div>
+</div>
+<div class="acParent"></div>
 
-    
-    <div class="article-meta pull-right">
-      <span>
-        <i class="icon-comments"></i>
-        <span>
-          <a href="/2017/03/08/用hexo和github搭建自己的静态博客/#comment">评论</a>
-        </span>
-      </span>
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
     </div>
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2017/03/08/几个ubuntu下比较好用的软件/"><span>几个ubuntu下比较好用的软件</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2017/03/08/几个ubuntu下比较好用的软件/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-03-08T00:14:36.000Z">
-          2017-03-08
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>安装好ubuntu后，系统会默认安装一系列软件能完成基本工作。<br>但是还是有很多软件更符合我的审美，所以。。。<br><em>Just install it!</em></p>
-<h2 id="oh-my-zsh"><a href="#oh-my-zsh" class="headerlink" title="oh-my-zsh"></a>oh-my-zsh</h2><p>这个简直是。。。谁用谁说好，懒人的福音<br>有丰富的主题和插件<br>我在用的主题是agnoster<br>插件有：git command-not-found docker gem git-flow gradle httpie npm tmux</p>
-<h2 id="tmux"><a href="#tmux" class="headerlink" title="tmux"></a>tmux</h2><p>一个可以分屏的命令行软件，命令触发Ctrl+b</p>
-<ul>
-<li>“ 开启上下分屏</li>
-<li>% 开启左右分屏</li>
-<li>x 关闭当前屏幕</li>
-<li>方向键 切换屏幕</li>
-</ul>
-<h2 id="fcitx-rime"><a href="#fcitx-rime" class="headerlink" title="fcitx-rime"></a>fcitx-rime</h2><p>用到目前为止，最好用的输入法</p>
-<h2 id="tilda"><a href="#tilda" class="headerlink" title="tilda"></a>tilda</h2><p>一个酷酷的终端软件，是terminal的最佳替代品</p>
-<h2 id="chromium"><a href="#chromium" class="headerlink" title="chromium"></a>chromium</h2><p>chrome的开源版本，google出品，必属精品</p>
-<h2 id="task-coach"><a href="#task-coach" class="headerlink" title="task coach"></a>task coach</h2><p>一个日程管理软件，just soso</p>
-<h2 id="unity-tweak-tool"><a href="#unity-tweak-tool" class="headerlink" title="unity tweak tool"></a>unity tweak tool</h2><p>调整unity样式的必备工具</p>
-
-      
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
     </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/ubuntu/">ubuntu</a><a href="/tags/tools/">tools</a>
-    </span>
-    
-
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
     </div>
-
-    
-    <div class="article-meta pull-right">
-      <span>
-        <i class="icon-comments"></i>
-        <span>
-          <a href="/2017/03/08/几个ubuntu下比较好用的软件/#comment">评论</a>
-        </span>
-      </span>
-    </div>
-    
-  </div>
-</article>
+</div>
 
 
+</body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
 
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2017/03/07/gitflow应用/"><span>gitflow应用</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2017/03/07/gitflow应用/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-03-07T12:29:28.000Z">
-          2017-03-07
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>git版本控制提供灵活的分支管理工具。在我们的实际生产应用中怎样使用分支来做好自己的版本控制?gitflow提供了一整套解决方案。</p>
-<h2 id="什么是gitflow？"><a href="#什么是gitflow？" class="headerlink" title="什么是gitflow？"></a>什么是gitflow？</h2><ul>
-<li>它是git的分支管理思想</li>
-<li>它也是git的分支管理工具</li>
-</ul>
-<h2 id="思想"><a href="#思想" class="headerlink" title="思想"></a>思想</h2><p>首先，在gitflow中，将分支做了一个分类：</p>
-<ol>
-<li>master 主分支 一般用于最终发布的分支</li>
-<li>hotfix 紧急修正分支 一般用于快速修复生产环境的阻碍性bug的修复补丁</li>
-<li>dev 开发分支 在开发中的核心分支</li>
-<li>feature 特性分支 用于完成特定需求而建立的分支</li>
-<li>release 发布分支 用于特定版本的构建</li>
-</ol>
-<p>其次，每种分支都有其独特的工作流：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">分支类型</th>
-<th style="text-align:center">创建</th>
-<th style="text-align:center">完成</th>
-<th style="text-align:center">备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">master</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">发布分支，默认创建</td>
-</tr>
-<tr>
-<td style="text-align:center">dev</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">开发分支，默认创建</td>
-</tr>
-<tr>
-<td style="text-align:center">hotfix</td>
-<td style="text-align:center">从master上新建分支</td>
-<td style="text-align:center">将hotfix分支合并到master分支<br>在master分支上打tag<br>删除hotfix分支</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">release</td>
-<td style="text-align:center">从dev上新建分支</td>
-<td style="text-align:center">将release分支合并到dev分支<br>将release分支合并到master分支<br>在master分支上打tag<br>删除release分支</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">feature</td>
-<td style="text-align:center">从dev上新建分支</td>
-<td style="text-align:center">将feature分支合并到dev分支<br>删除feature分支</td>
-</tr>
-</tbody>
-</table>
-<p>也就是说，gitflow的每个操作都是固化的一组git命令</p>
-<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git flow init</span><br></pre></td></tr></table></figure>
-<p>接下来会提几个问题：</p>
-<ol>
-<li>主分支名 master</li>
-<li>开发分支名 dev</li>
-<li>各种分支和tag前缀名 直接回车 使用默认的即可</li>
-</ol>
-<h3 id="获取使用帮助"><a href="#获取使用帮助" class="headerlink" title="获取使用帮助"></a>获取使用帮助</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git flow</span><br></pre></td></tr></table></figure>
-<p>将列出可用的命令及其功能</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git flow XXX help</span><br></pre></td></tr></table></figure>
-<p>XXX为<code>git flow</code>中列出的命令</p>
-<p>将列出具体命令支持的操作</p>
-<h3 id="常见操作"><a href="#常见操作" class="headerlink" title="常见操作"></a>常见操作</h3><table>
-<thead>
-<tr>
-<th style="text-align:center">操作名</th>
-<th style="text-align:center">支持分支</th>
-<th style="text-align:center">功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">start</td>
-<td style="text-align:center">feature,release,hotfix</td>
-<td style="text-align:center">创建分支</td>
-</tr>
-<tr>
-<td style="text-align:center">finish</td>
-<td style="text-align:center">feature,release,hotfix</td>
-<td style="text-align:center">完成分支，自动出发完成分支的一系列操作</td>
-</tr>
-<tr>
-<td style="text-align:center">publish</td>
-<td style="text-align:center">feature,release,hotfix</td>
-<td style="text-align:center">提交分支到远端</td>
-</tr>
-<tr>
-<td style="text-align:center">delete</td>
-<td style="text-align:center">feature,release,hotfix</td>
-<td style="text-align:center">删除分支</td>
-</tr>
-<tr>
-<td style="text-align:center">list</td>
-<td style="text-align:center">feature,release,hotfix</td>
-<td style="text-align:center">罗列该分类下所有分支</td>
-</tr>
-<tr>
-<td style="text-align:center">track</td>
-<td style="text-align:center">feature,release</td>
-<td style="text-align:center">跟踪远端分支</td>
-</tr>
-<tr>
-<td style="text-align:center">checkout</td>
-<td style="text-align:center">feature</td>
-<td style="text-align:center">切换远端分支</td>
-</tr>
-<tr>
-<td style="text-align:center">pull</td>
-<td style="text-align:center">feature</td>
-<td style="text-align:center">拉去远端分支上的内容</td>
-</tr>
-</tbody>
-</table>
-<h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><table>
-<thead>
-<tr>
-<th style="text-align:center">分支类型</th>
-<th style="text-align:center">命名规整</th>
-<th style="text-align:center">示例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">hotfix</td>
-<td style="text-align:center">{release}patch{No.}</td>
-<td style="text-align:center">v2.2patch1</td>
-</tr>
-<tr>
-<td style="text-align:center">release</td>
-<td style="text-align:center">v{version code}</td>
-<td style="text-align:center">v2.2</td>
-</tr>
-<tr>
-<td style="text-align:center">feature</td>
-<td style="text-align:center">rm-{redmine issue id}</td>
-<td style="text-align:center">rm-saas-38</td>
-</tr>
-</tbody>
-</table>
-<p><code>备注：由于feature大部分情况下为单个人员完成，所以只需维护本地分支，分支名可以起自己看得懂的即可</code></p>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/git/">git</a><a href="/tags/gitflow/">gitflow</a>
-    </span>
-    
-
-    </div>
-
-    
-    <div class="article-meta pull-right">
-      <span>
-        <i class="icon-comments"></i>
-        <span>
-          <a href="/2017/03/07/gitflow应用/#comment">评论</a>
-        </span>
-      </span>
-    </div>
-    
-  </div>
-</article>
-
-
-
-
-<nav class="pagination">
-  
-  
-</nav>
-    </main>
-
-    <footer class="site-footer">
-  <p class="site-info">
-    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
-    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
-    </br>
-    
-    &copy; 2018 天山飞猫
-    
-  </p>
-</footer>
-    
+<script src="/js/script.js?v=1.0.1" ></script>
 <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#git','#gitflow','#spring','#jpa','#repository','#ubuntu','#ssh','#代码风格','#github','#docker','#idea','#tools','#hexo','#utunbu','#vpn',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
 
-    ga('create', 'UA-96760263-1', 'auto');
-    ga('send', 'pageview');
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
 
 </script>
 
-  </div>
-</div>
-</body>
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
 </html>
