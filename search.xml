@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>我们不自由，我们有镜像</title>
+      <link href="/2020/02/10/%E6%88%91%E4%BB%AC%E4%B8%8D%E8%87%AA%E7%94%B1%EF%BC%8C%E6%88%91%E4%BB%AC%E6%9C%89%E9%95%9C%E5%83%8F/"/>
+      <url>/2020/02/10/%E6%88%91%E4%BB%AC%E4%B8%8D%E8%87%AA%E7%94%B1%EF%BC%8C%E6%88%91%E4%BB%AC%E6%9C%89%E9%95%9C%E5%83%8F/</url>
+      
+        <content type="html"><![CDATA[<p>我们在日常的开发中总会遇到各式各样的访问速度慢甚至不能访问官方更新库的情况，下面总结了一些我常用到的软件的镜像修改方法。</p><h1 id="镜像站点"><a href="#镜像站点" class="headerlink" title="镜像站点"></a>镜像站点</h1><ul><li><h3 id="阿里云"><a href="#阿里云" class="headerlink" title="阿里云"></a><a href="https://developer.aliyun.com/mirror/" target="_blank" rel="noopener">阿里云</a></h3></li><li><h3 id="网易"><a href="#网易" class="headerlink" title="网易"></a><a href="http://mirrors.163.com/" target="_blank" rel="noopener">网易</a></h3></li><li><h3 id="华为"><a href="#华为" class="headerlink" title="华为"></a><a href="https://mirrors.huaweicloud.com/" target="_blank" rel="noopener">华为</a></h3></li><li><h3 id="搜狐"><a href="#搜狐" class="headerlink" title="搜狐"></a><a href="http://mirrors.sohu.com/" target="_blank" rel="noopener">搜狐</a></h3></li><li><h3 id="Azure"><a href="#Azure" class="headerlink" title="Azure"></a><a href="http://mirror.azure.cn/" target="_blank" rel="noopener">Azure</a></h3></li><li><h3 id="淘宝"><a href="#淘宝" class="headerlink" title="淘宝"></a><a href="https://npm.taobao.org/" target="_blank" rel="noopener">淘宝</a></h3></li><li><h3 id="腾讯云"><a href="#腾讯云" class="headerlink" title="腾讯云"></a><a href="https://mirrors.cloud.tencent.com/" target="_blank" rel="noopener">腾讯云</a></h3></li><li><h3 id="清华大学"><a href="#清华大学" class="headerlink" title="清华大学"></a><a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener">清华大学</a></h3></li><li><h3 id="浙江大学"><a href="#浙江大学" class="headerlink" title="浙江大学"></a><a href="http://mirrors.zju.edu.cn/" target="_blank" rel="noopener">浙江大学</a></h3></li><li><h3 id="中国科学技术大学"><a href="#中国科学技术大学" class="headerlink" title="中国科学技术大学"></a><a href="http://mirrors.ustc.edu.cn/" target="_blank" rel="noopener">中国科学技术大学</a></h3></li><li><h3 id="北京交通大学"><a href="#北京交通大学" class="headerlink" title="北京交通大学"></a><a href="https://mirror.bjtu.edu.cn/" target="_blank" rel="noopener">北京交通大学</a></h3></li><li><h3 id="东软信息学院"><a href="#东软信息学院" class="headerlink" title="东软信息学院"></a><a href="http://mirrors.neusoft.edu.cn/" target="_blank" rel="noopener">东软信息学院</a></h3></li><li><h3 id="南京大学"><a href="#南京大学" class="headerlink" title="南京大学"></a><a href="http://mirrors.nju.edu.cn/" target="_blank" rel="noopener">南京大学</a></h3></li><li><h3 id="重庆大学"><a href="#重庆大学" class="headerlink" title="重庆大学"></a><a href="http://mirrors.cqu.edu.cn/" target="_blank" rel="noopener">重庆大学</a></h3></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 镜像 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Mac下好用的软件们</title>
+      <link href="/2020/02/10/Mac%E4%B8%8B%E5%A5%BD%E7%94%A8%E7%9A%84%E8%BD%AF%E4%BB%B6%E4%BB%AC/"/>
+      <url>/2020/02/10/Mac%E4%B8%8B%E5%A5%BD%E7%94%A8%E7%9A%84%E8%BD%AF%E4%BB%B6%E4%BB%AC/</url>
+      
+        <content type="html"><![CDATA[<p>我已经忘记更新blog很久了吧。。。。</p><p>看记录，最近一次还是2018年的时候</p><p>已经用mac系统3，4年了，也有了一些离不开的软件了，有些是从ubuntu时代延续过来的，有的是新发现软件，下面简单介绍一下。</p><h2 id="oh-my-zsh"><a href="#oh-my-zsh" class="headerlink" title="oh-my-zsh"></a>oh-my-zsh</h2><p>这个软件我估计要伴随我所有的unix系统了，简直太方便了</p><h2 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h2><p>python的不同版本，一些安装起来很麻烦的工具都不怕了</p><h2 id="synergy"><a href="#synergy" class="headerlink" title="synergy"></a>synergy</h2><p>一套键鼠操作多台电脑的神器</p><h2 id="HomeBrew"><a href="#HomeBrew" class="headerlink" title="HomeBrew"></a>HomeBrew</h2><p>超级方便的安装工具</p><h2 id="utools"><a href="#utools" class="headerlink" title="utools"></a>utools</h2><p>太方便了</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> mac </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Ubuntu下git的一个bug</title>
       <link href="/2018/02/01/ubuntu%E4%B8%8Bgit%E7%9A%84%E4%B8%80%E4%B8%AAbug/"/>
       <url>/2018/02/01/ubuntu%E4%B8%8Bgit%E7%9A%84%E4%B8%80%E4%B8%AAbug/</url>

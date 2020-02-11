@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>使用github和dockerhub搭建自动构建镜像 | 天山飞猫</title>
-  <meta name="keywords" content=" git , github , docker ">
-  <meta name="description" content="使用github和dockerhub搭建自动构建镜像 | 天山飞猫">
+  <title>我们不自由，我们有镜像 | 天山飞猫</title>
+  <meta name="keywords" content=" 镜像 ">
+  <meta name="description" content="我们不自由，我们有镜像 | 天山飞猫">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="小黑屋(fork from github)公共Docker镜像(自建)">
 <meta property="og:type" content="website">
@@ -424,9 +424,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-使用github和dockerhub搭建自动构建镜像" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-我们不自由，我们有镜像" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">使用github和dockerhub搭建自动构建镜像</h1>
+        <h1 class="article-title">我们不自由，我们有镜像</h1>
     
     <div class="article-meta">
         
@@ -434,32 +434,26 @@
         
         <span class="book">
             
-                <a  data-rel="运维">运维</a>/
-            
-                <a  data-rel="自动化">自动化</a>
+                <a  data-rel="工具">工具</a>
             
         </span>
         
         
         <span class="tag">
             
-            <a class="color4">git</a>
-            
-            <a class="color2">github</a>
-            
-            <a class="color2">docker</a>
+            <a class="color3">镜像</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-02-10 16:41:43'>2017-11-07 10:13</time>
+        创建时间:<time class="date" title='更新时间: 2020-02-11 18:30:20'>2020-02-10 17:59</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:109</span>
+        <span>字数:113</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -489,7 +483,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#准备阶段"><span class="toc-text">准备阶段</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#步骤"><span class="toc-text">步骤</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#镜像站点"><span class="toc-text">镜像站点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#阿里云"><span class="toc-text">阿里云</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网易"><span class="toc-text">网易</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#华为"><span class="toc-text">华为</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#搜狐"><span class="toc-text">搜狐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Azure"><span class="toc-text">Azure</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#淘宝"><span class="toc-text">淘宝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#腾讯云"><span class="toc-text">腾讯云</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#清华大学"><span class="toc-text">清华大学</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浙江大学"><span class="toc-text">浙江大学</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中国科学技术大学"><span class="toc-text">中国科学技术大学</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#北京交通大学"><span class="toc-text">北京交通大学</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#东软信息学院"><span class="toc-text">东软信息学院</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#南京大学"><span class="toc-text">南京大学</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重庆大学"><span class="toc-text">重庆大学</span></a></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -505,17 +499,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近，在工作中需要构建一些docker的公共基础镜像，但每次进行微调时都比较麻烦，所以想自动构建，正好github和dockerhub提供了现成的解决方案。</p>
-<h1 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h1><ul>
-<li>github帐号</li>
-<li>docker帐号</li>
+        <p>我们在日常的开发中总会遇到各式各样的访问速度慢甚至不能访问官方更新库的情况，下面总结了一些我常用到的软件的镜像修改方法。</p>
+<h1 id="镜像站点"><a href="#镜像站点" class="headerlink" title="镜像站点"></a>镜像站点</h1><ul>
+<li><h3 id="阿里云"><a href="#阿里云" class="headerlink" title="阿里云"></a><a href="https://developer.aliyun.com/mirror/" target="_blank" rel="noopener">阿里云</a></h3></li>
+<li><h3 id="网易"><a href="#网易" class="headerlink" title="网易"></a><a href="http://mirrors.163.com/" target="_blank" rel="noopener">网易</a></h3></li>
+<li><h3 id="华为"><a href="#华为" class="headerlink" title="华为"></a><a href="https://mirrors.huaweicloud.com/" target="_blank" rel="noopener">华为</a></h3></li>
+<li><h3 id="搜狐"><a href="#搜狐" class="headerlink" title="搜狐"></a><a href="http://mirrors.sohu.com/" target="_blank" rel="noopener">搜狐</a></h3></li>
+<li><h3 id="Azure"><a href="#Azure" class="headerlink" title="Azure"></a><a href="http://mirror.azure.cn/" target="_blank" rel="noopener">Azure</a></h3></li>
+<li><h3 id="淘宝"><a href="#淘宝" class="headerlink" title="淘宝"></a><a href="https://npm.taobao.org/" target="_blank" rel="noopener">淘宝</a></h3></li>
+<li><h3 id="腾讯云"><a href="#腾讯云" class="headerlink" title="腾讯云"></a><a href="https://mirrors.cloud.tencent.com/" target="_blank" rel="noopener">腾讯云</a></h3></li>
+<li><h3 id="清华大学"><a href="#清华大学" class="headerlink" title="清华大学"></a><a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener">清华大学</a></h3></li>
+<li><h3 id="浙江大学"><a href="#浙江大学" class="headerlink" title="浙江大学"></a><a href="http://mirrors.zju.edu.cn/" target="_blank" rel="noopener">浙江大学</a></h3></li>
+<li><h3 id="中国科学技术大学"><a href="#中国科学技术大学" class="headerlink" title="中国科学技术大学"></a><a href="http://mirrors.ustc.edu.cn/" target="_blank" rel="noopener">中国科学技术大学</a></h3></li>
+<li><h3 id="北京交通大学"><a href="#北京交通大学" class="headerlink" title="北京交通大学"></a><a href="https://mirror.bjtu.edu.cn/" target="_blank" rel="noopener">北京交通大学</a></h3></li>
+<li><h3 id="东软信息学院"><a href="#东软信息学院" class="headerlink" title="东软信息学院"></a><a href="http://mirrors.neusoft.edu.cn/" target="_blank" rel="noopener">东软信息学院</a></h3></li>
+<li><h3 id="南京大学"><a href="#南京大学" class="headerlink" title="南京大学"></a><a href="http://mirrors.nju.edu.cn/" target="_blank" rel="noopener">南京大学</a></h3></li>
+<li><h3 id="重庆大学"><a href="#重庆大学" class="headerlink" title="重庆大学"></a><a href="http://mirrors.cqu.edu.cn/" target="_blank" rel="noopener">重庆大学</a></h3></li>
 </ul>
-<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
-<li>创建github仓库</li>
-<li>在docker中的setting里选择Linked Accounts &amp; Services，绑定github帐号</li>
-<li>在docker中，要点击create下拉按钮，选择Create Automated Build</li>
-<li>选择好仓库即可</li>
-</ol>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 mayan31370@126.com </span>
@@ -529,12 +529,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>使用github和dockerhub搭建自动构建镜像</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">109</span></p>
+    <p><span class="copy-title">文章标题:</span>我们不自由，我们有镜像</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">113</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="天山飞猫">天山飞猫</a></p>
-    <p><span class="copy-title">发布时间:</span>2017-11-07, 10:13:28</p>
-    <p><span class="copy-title">最后更新:</span>2020-02-10, 16:41:43</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2017/11/07/使用github和dockerhub搭建自动构建镜像/" title="使用github和dockerhub搭建自动构建镜像">http://blog.ma-yan.win/2017/11/07/使用github和dockerhub搭建自动构建镜像/</a>
+    <p><span class="copy-title">发布时间:</span>2020-02-10, 17:59:22</p>
+    <p><span class="copy-title">最后更新:</span>2020-02-11, 18:30:20</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/02/10/我们不自由，我们有镜像/" title="我们不自由，我们有镜像">http://blog.ma-yan.win/2020/02/10/我们不自由，我们有镜像/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
